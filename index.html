@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ORD Flight Delay Simulation</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0b1020;
+      color: #f3f4f6;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+      box-sizing: border-box;
+      padding: 24px;
+      gap: 24px;
+    }
+
+    .sidebar {
+      width: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .clock {
+      font-size: 40px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .clock-sub {
+      margin-top: 4px;
+      font-size: 14px;
+      color: #9ca3af;
+    }
+
+    .speed-controls {
+      margin-top: 24px;
+      display: inline-flex;
+      border-radius: 999px;
+      border: 1px solid #4b5563;
+      overflow: hidden;
+    }
+
+    .speed-btn {
+      padding: 4px 12px;
+      font-size: 11px;
+      cursor: pointer;
+      border-right: 1px solid #4b5563;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background: transparent;
+      color: #9ca3af;
+    }
+
+    .speed-btn:last-child {
+      border-right: none;
+    }
+
+    .speed-btn.active {
+      background: #f97316;
+      color: #111827;
+      border-color: #f97316;
+    }
+
+    .legend {
+      margin-top: 32px;
+      font-size: 13px;
+    }
+
+    .legend-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #6b7280;
+      margin-bottom: 8px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 4px;
+      gap: 6px;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+    }
+
+    .legend-dot.on {
+      background: #22c55e;
+    }
+
+    .legend-dot.delay {
+      background: #facc15;
+    }
+
+    .legend-dot.cancel {
+      background: #ef4444;
+    }
+
+    .legend-dot.trail {
+      background: #6b7280;
+      opacity: 0.6;
+    }
+
+    .summary {
+      font-size: 12px;
+      color: #9ca3af;
+      line-height: 1.4;
+      margin-top: 24px;
+    }
+
+    .summary strong {
+      color: #e5e7eb;
+    }
+
+    .counts {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .count-box {
+      padding: 6px 8px;
+      border-radius: 8px;
+      background: rgba(31, 41, 55, 0.7);
+    }
+
+    .count-box span {
+      display: block;
+    }
+
+    .count-number {
+      font-size: 14px;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .canvas-wrapper {
+      flex: 1;
+      border-radius: 18px;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #020617 100%);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .airport-dot {
+      fill: #e5e7eb;
+      stroke: #020617;
+      stroke-width: 1.5;
+    }
+
+    .airport-label {
+      fill: #e5e7eb;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .airport-sub {
+      fill: #6b7280;
+      font-size: 10px;
+    }
+
+    .flight-dot {
+      opacity: 0.9;
+      stroke-width: 0.5;
+      stroke: #020617;
+    }
+
+    .time-axis {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 18px;
+      height: 28px;
+      pointer-events: none;
+    }
+
+    .time-axis line {
+      stroke: #1f2937;
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+
+    .time-axis .tick {
+      stroke: #374151;
+      stroke-width: 1;
+    }
+
+    .time-axis .indicator {
+      stroke: #f97316;
+      stroke-width: 2;
+    }
+
+    .time-label {
+      position: absolute;
+      bottom: 22px;
+      right: 32px;
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .error-msg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fca5a5;
+      font-size: 14px;
+      text-align: center;
+      padding: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        gap: 24px;
+      }
+      .clock-section {
+        flex: 1;
+      }
+      .canvas-wrapper {
+        height: 60vh;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="sidebar">
+    <div class="clock-section">
+      <div class="clock" id="clock">--:--</div>
+      <div class="clock-sub" id="clock-sub">Local time at ORD</div>
+
+      <div class="speed-controls">
+        <button class="speed-btn active" data-speed="1">Slow</button>
+        <button class="speed-btn" data-speed="3">Medium</button>
+        <button class="speed-btn" data-speed="6">Fast</button>
+      </div>
+
+      <div class="legend">
+        <div class="legend-title">Flight status</div>
+        <div class="legend-item">
+          <div class="legend-dot on"></div><span>On time (≤ 5 min delay)</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot delay"></div><span>Delayed (&gt; 5 min)</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot cancel"></div><span>Cancelled at gate</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot trail"></div><span>Previous positions (faint trail)</span>
+        </div>
+      </div>
+
+      <div class="summary">
+        <p>
+          Flights depart from <strong>ORD</strong> and travel to a few major hubs.
+          Each dot is a single flight. Color encodes its status; time passes along the
+          bottom axis like a little runway clock.
+        </p>
+        <div class="counts">
+          <div class="count-box">
+            <span>Active flights</span>
+            <span class="count-number" id="count-active">0</span>
+          </div>
+          <div class="count-box">
+            <span>Cancelled</span>
+            <span class="count-number" id="count-cancel">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="clock-footer">
+      <div style="font-size:11px;color:#4b5563;margin-top:auto;">
+        Data source: BTS Airline On-Time Statistics<br/>
+        Visualization by Yunah Kim
+      </div>
+    </div>
+  </div>
+
+  <div class="canvas-wrapper" id="canvas-wrapper">
+    <svg id="flight-svg"></svg>
+    <div class="time-axis" id="time-axis"></div>
+    <div class="time-label" id="time-label"></div>
+  </div>
+</div>
+
+<script>
+  // ---- 0. Configuration ----
+  const airports = {
+    ORD: { name: "Chicago O'Hare", code: "ORD", x: 0.50, y: 0.55 },
+    ATL: { name: "Atlanta", code: "ATL", x: 0.75, y: 0.85 },
+    SEA: { name: "Seattle", code: "SEA", x: 0.12, y: 0.30 },
+    SLC: { name: "Salt Lake City", code: "SLC", x: 0.30, y: 0.40 },
+    MSP: { name: "Minneapolis", code: "MSP", x: 0.45, y: 0.22 },
+    DTW: { name: "Detroit", code: "DTW", x: 0.68, y: 0.30 },
+    LGA: { name: "New York (LGA)", code: "LGA", x: 0.84, y: 0.26 }
+  };
+
+  const statusColor = {
+    "On-Time": "#22c55e",
+    "Delayed": "#facc15",
+    "Cancelled": "#ef4444"
+  };
+
+  let speedMultiplier = 1;  // minutes per frame step
+
+  // ---- 1. DOM & SVG setup ----
+  const svg = d3.select("#flight-svg");
+  const wrapper = document.getElementById("canvas-wrapper");
+  const timeAxisDiv = d3.select("#time-axis");
+  const clockEl = document.getElementById("clock");
+  const timeLabelEl = document.getElementById("time-label");
+  const countActiveEl = document.getElementById("count-active");
+  const countCancelEl = document.getElementById("count-cancel");
+
+  function getSize() {
+    const rect = wrapper.getBoundingClientRect();
+    return { width: rect.width, height: rect.height };
+  }
+
+  // responsive viewBox
+  function resizeSvg() {
+    const { width, height } = getSize();
+    svg.attr("viewBox", `0 0 ${width} ${height}`);
+  }
+  window.addEventListener("resize", resizeSvg);
+  resizeSvg();
+
+  // ---- 2. Load flight data ----
+  // flights.json 형식:
+  // [{ FL_NUM, TAIL_NUM, DEST, dep_minutes, duration, status }, ...]
+  fetch("flights.json")
+    .then(r => r.json())
+    .then(flights => {
+      if (!flights || !flights.length) throw new Error("No flights in flights.json");
+
+      runVisualization(flights);
+    })
+    .catch(err => {
+      console.error(err);
+      d3.select("#canvas-wrapper")
+        .append("div")
+        .attr("class", "error-msg")
+        .text("flights.json 을 찾을 수 없거나 형식이 잘못되었습니다. CSV에서 JSON을 만들고 같은 폴더에 flights.json 이름으로 올려주세요.");
+    });
+
+  // ---- 3. Main visualization ----
+  function runVisualization(rawFlights) {
+    // 기본 값/클린업
+    const flights = rawFlights
+      .filter(d => airports[d.DEST])
+      .map(d => ({
+        ...d,
+        dep_minutes: +d.dep_minutes,
+        duration: +d.duration,
+        status: d.status,
+        id: d.FL_NUM + "_" + d.TAIL_NUM
+      }));
+
+    const cancelledFlights = flights.filter(f => f.status === "Cancelled");
+    countCancelEl.textContent = cancelledFlights.length;
+
+    const minTime = d3.min(flights, d => d.dep_minutes) || 0;
+    const maxTime = d3.max(flights, d => d.dep_minutes + d.duration) || (minTime + 60);
+
+    let currentTime = minTime;
+    let timer = null;
+
+    // ---- Draw airports ----
+    const { width, height } = getSize();
+    const airportGroup = svg.append("g").attr("class", "airports");
+
+    const airportSize = Math.min(width, height) * 0.012;
+
+    Object.values(airports).forEach(a => {
+      const x = a.x * width;
+      const y = a.y * height;
+
+      airportGroup.append("circle")
+        .attr("class", "airport-dot")
+        .attr("cx", x)
+        .attr("cy", y)
+        .attr("r", airportSize);
+
+      airportGroup.append("text")
+        .attr("class", "airport-label")
+        .attr("x", x + airportSize + 4)
+        .attr("y", y - 2)
+        .text(a.code);
+
+      airportGroup.append("text")
+        .attr("class", "airport-sub")
+        .attr("x", x + airportSize + 4)
+        .attr("y", y + 11)
+        .text(a.name);
+    });
+
+    // ---- Time axis (bottom) ----
+    const axisSvg = timeAxisDiv.append("svg").attr("width", "100%").attr("height", "100%");
+    const axisWidth = wrapper.getBoundingClientRect().width - 48;
+    const axisHeight = 28;
+
+    axisSvg.attr("viewBox", `0 0 ${axisWidth} ${axisHeight}`);
+
+    const xScale = d3.scaleLinear()
+      .domain([minTime, maxTime])
+      .range([10, axisWidth - 10]);
+
+    // baseline
+    axisSvg.append("line")
+      .attr("x1", xScale(minTime))
+      .attr("x2", xScale(maxTime))
+      .attr("y1", axisHeight / 2)
+      .attr("y2", axisHeight / 2)
+      .attr("stroke", "#1f2937")
+      .attr("stroke-width", 3)
+      .attr("stroke-linecap", "round");
+
+    const tickTimes = d3.ticks(minTime, maxTime, 6);
+    tickTimes.forEach(t => {
+      axisSvg.append("line")
+        .attr("class", "tick")
+        .attr("x1", xScale(t))
+        .attr("x2", xScale(t))
+        .attr("y1", axisHeight / 2 - 5)
+        .attr("y2", axisHeight / 2 + 5)
+        .attr("stroke", "#374151");
+
+      axisSvg.append("text")
+        .attr("x", xScale(t))
+        .attr("y", axisHeight / 2 + 16)
+        .attr("fill", "#6b7280")
+        .attr("font-size", 9)
+        .attr("text-anchor", "middle")
+        .text(formatClock(t));
+    });
+
+    const indicator = axisSvg.append("line")
+      .attr("class", "indicator")
+      .attr("x1", xScale(currentTime))
+      .attr("x2", xScale(currentTime))
+      .attr("y1", axisHeight / 2 - 8)
+      .attr("y2", axisHeight / 2 + 8)
+      .attr("stroke", "#f97316");
+
+    // ---- Flight layer ----
+    const flightLayer = svg.append("g").attr("class", "flights");
+    const trailLayer = svg.append("g").attr("class", "trails");
+
+    const baseRadius = Math.min(width, height) * 0.006;
+
+    // 각 flight마다 최근 위치 흔적 남기기 위해 history 저장
+    const historyById = new Map();
+
+    function getPosForFlight(f, t) {
+      const ord = airports["ORD"];
+      const dest = airports[f.DEST];
+
+      if (f.status === "Cancelled") {
+        // ORD 근처에 살짝 랜덤으로 뿌리기
+        const jitterX = (Math.random() - 0.5) * 0.02;
+        const jitterY = (Math.random() - 0.5) * 0.02;
+        return {
+          x: (ord.x + jitterX) * width,
+          y: (ord.y + jitterY) * height,
+          visible: t >= f.dep_minutes - 30 // 출발 예정 근처부터 보이게
+        };
+      }
+
+      const t0 = f.dep_minutes;
+      const t1 = f.dep_minutes + f.duration;
+
+      if (t < t0 - 5) return { visible: false };
+      if (t > t1 + 5) return { visible: false };
+
+      let frac;
+      if (t <= t0) {
+        frac = 0; // 게이트에 대기
+      } else if (t >= t1) {
+        frac = 1; // 도착
+      } else {
+        frac = (t - t0) / (t1 - t0);
+      }
+
+      const x = (ord.x * (1 - frac) + dest.x * frac) * width;
+      const y = (ord.y * (1 - frac) + dest.y * frac) * height;
+
+      return { x, y, visible: true };
+    }
+
+    function update() {
+      // 1) flight 위치 업데이트
+      const active = [];
+      flights.forEach(f => {
+        const p = getPosForFlight(f, currentTime);
+        if (p.visible) {
+          active.push({ ...f, x: p.x, y: p.y });
+          // history 기록 (trail 용)
+          if (!historyById.has(f.id)) historyById.set(f.id, []);
+          const h = historyById.get(f.id);
+          h.push({ x: p.x, y: p.y });
+          if (h.length > 8) h.shift(); // trail 길이 제한
+        }
+      });
+
+      countActiveEl.textContent = active.length;
+
+      // 2) flight 점 그리기
+      const flightsSel = flightLayer.selectAll("circle.flight-dot")
+        .data(active, d => d.id);
+
+      flightsSel.exit().remove();
+
+      flightsSel
+        .attr("cx", d => d.x)
+        .attr("cy", d => d.y);
+
+      flightsSel.enter()
+        .append("circle")
+        .attr("class", "flight-dot")
+        .attr("cx", d => d.x)
+        .attr("cy", d => d.y)
+        .attr("r", baseRadius)
+        .attr("fill", d => statusColor[d.status] || "#9ca3af")
+        .attr("opacity", 0.0)
+        .transition()
+        .duration(120)
+        .attr("opacity", 0.95);
+
+      // 3) trail (옅은 점들)
+      const trailData = [];
+      historyById.forEach((h, id) => {
+        h.forEach((p, idx) => {
+          trailData.push({ id: id + "_" + idx, x: p.x, y: p.y, alpha: (idx + 1) / h.length });
+        });
+      });
+
+      const trailSel = trailLayer.selectAll("circle.trail-dot")
+        .data(trailData, d => d.id);
+
+      trailSel.exit().remove();
+
+      trailSel
+        .attr("cx", d => d.x)
+        .attr("cy", d => d.y)
+        .attr("r", baseRadius * 0.4)
+        .attr("fill", "#6b7280")
+        .attr("opacity", d => 0.3 * d.alpha);
+
+      trailSel.enter()
+        .append("circle")
+        .attr("class", "trail-dot")
+        .attr("cx", d => d.x)
+        .attr("cy", d => d.y)
+        .attr("r", baseRadius * 0.4)
+        .attr("fill", "#6b7280")
+        .attr("opacity", d => 0.3 * d.alpha);
+
+      // 4) clock & axis indicator 업데이트
+      clockEl.textContent = formatClock(currentTime);
+      timeLabelEl.textContent = `Simulation window: ${formatClock(minTime)} – ${formatClock(maxTime)}`;
+
+      indicator
+        .attr("x1", xScale(currentTime))
+        .attr("x2", xScale(currentTime));
+    }
+
+    function tick() {
+      currentTime += speedMultiplier;
+      if (currentTime > maxTime) {
+        currentTime = minTime; // 루프
+        // history 초기화
+        historyById.clear();
+      }
+      update();
+    }
+
+    timer = d3.interval(tick, 180); // 180ms마다 업데이트
+
+    update(); // 첫 프레임 그리기
+
+    // ---- speed control buttons ----
+    const buttons = document.querySelectorAll(".speed-btn");
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        speedMultiplier = +btn.dataset.speed;
+      });
+    });
+  }
+
+  // ---- Utility: minutes -> clock string ----
+  function formatClock(mins) {
+    mins = Math.round(mins);
+    const m = (mins % 60 + 60) % 60;
+    const h24 = Math.floor(mins / 60) % 24;
+    const h12 = ((h24 + 11) % 12) + 1;
+    const ampm = h24 < 12 ? "AM" : "PM";
+    return `${String(h12).padStart(1,"0")}:${String(m).padStart(2,"0")} ${ampm}`;
+  }
+
+</script>
+</body>
+</html>
