@@ -408,8 +408,8 @@ runVisualization(testData);
     const cancelledFlights = flights.filter(f => f.status === "Cancelled");
     countCancelEl.textContent = cancelledFlights.length;
 
-    const minTime = d3.min(flights, d => d.dep_minutes) || 0;
-    const maxTime = d3.max(flights, d => d.dep_minutes + d.duration) || (minTime + 60);
+    const minTime = (d3.min(flights, d => d.dep_minutes) || 60) - 60; // 첫 비행기 1시간 전
+    const maxTime = (d3.max(flights, d => d.dep_minutes + d.duration) || 1380) + 60; // 마지막 비행기 1시간 후
 
     let currentTime = minTime;
     let timer = null;
