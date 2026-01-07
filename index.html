@@ -355,12 +355,12 @@
   resizeSvg();
 
   // ---- 2. Load flight data ----
-  // flights.json 형식:
+  // flights_clean.json 형식:
   // [{ FL_NUM, TAIL_NUM, DEST, dep_minutes, duration, status }, ...]
-  fetch("flights.json")
+  fetch("flights_clean.json")
     .then(r => r.json())
     .then(flights => {
-      if (!flights || !flights.length) throw new Error("No flights in flights.json");
+      if (!flights || !flights.length) throw new Error("No flights in flights_clean.json");
 
       runVisualization(flights);
     })
@@ -369,7 +369,7 @@
       d3.select("#canvas-wrapper")
         .append("div")
         .attr("class", "error-msg")
-        .text("flights.json 을 찾을 수 없거나 형식이 잘못되었습니다. CSV에서 JSON을 만들고 같은 폴더에 flights.json 이름으로 올려주세요.");
+        .text("flights_clean.json 을 찾을 수 없거나 형식이 잘못되었습니다. CSV에서 JSON을 만들고 같은 폴더에 flights_clean.json 이름으로 올려주세요.");
     });
 
   // ---- 3. Main visualization ----
