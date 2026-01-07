@@ -357,20 +357,29 @@
   // ---- 2. Load flight data ----
   // flight.json 형식:
   // [{ FL_NUM, TAIL_NUM, DEST, dep_minutes, duration, status }, ...]
-  fetch("flight.json")
-    .then(r => r.json())
-    .then(flights => {
-      if (!flights || !flights.length) throw new Error("No flights in flight.json");
+  /*
+fetch("flight.json")
+  .then(r => r.json())
+  .then(flights => {
+    if (!flights || !flights.length) throw new Error("No flights in flight.json");
+    runVisualization(flights);
+  })
+  .catch(err => {
+    console.error(err);
+    d3.select("#canvas-wrapper")
+      .append("div")
+      .attr("class", "error-msg")
+      .text("flight.json 을 찾을 수 없거나 형식이 잘못되었습니다. CSV에서 JSON을 만들고 같은 폴더에 flight.json 이름으로 올려주세요.");
+  });
+*/
+// ⭐ TEMP: 테스트용 데이터 직접 넣기 ⭐
+const testData = [
+  { FL_NUM: "101", TAIL_NUM: "N1", DEST: "ATL", dep_minutes: 500, duration: 100, status: "On-Time" },
+  { FL_NUM: "102", TAIL_NUM: "N2", DEST: "SEA", dep_minutes: 550, duration: 240, status: "Delayed" },
+  { FL_NUM: "103", TAIL_NUM: "N3", DEST: "LGA", dep_minutes: 600, duration: 130, status: "Cancelled" }
+];
 
-      runVisualization(flights);
-    })
-    .catch(err => {
-      console.error(err);
-      d3.select("#canvas-wrapper")
-        .append("div")
-        .attr("class", "error-msg")
-        .text("flight.json 을 찾을 수 없거나 형식이 잘못되었습니다. CSV에서 JSON을 만들고 같은 폴더에 flight.json 이름으로 올려주세요.");
-    });
+runVisualization(testData);
 
   // ---- 3. Main visualization ----
   function runVisualization(rawFlights) {
