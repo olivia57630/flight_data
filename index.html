@@ -372,31 +372,41 @@ fetch("flight.json")
       .text("flight.json 을 찾을 수 없거나 형식이 잘못되었습니다. CSV에서 JSON을 만들고 같은 폴더에 flight.json 이름으로 올려주세요.");
   });
 */
-  // ---- 2. Load flight data (수정된 버전) ----
-fetch("flight.json") // 파일 이름을 flight.json으로 맞춤
-  .then(r => r.json())
+  // ---- 2. Load flight data (최종 수정 버전) ----
+fetch("flight.json") 
+  .then(r => {
+    if (!r.ok) throw new Error("네트워크 응답에 문제가 있습니다.");
+    return r.json();
+  })
   .then(rawFlights => {
-    // 실제 JSON의 필드명을 시뮬레이션 필드명으로 매핑
+    // 1. 데이터 필드명 매핑 (데이터에 맞게 수정)
     const formattedFlights = rawFlights.map(d => ({
-      FL_NUM: d.FlightNumber || d.FL_NUM || "000",
-      TAIL_NUM: d.TailNumber || d.TAIL_NUM || "N/A",
-      DEST: d.Destination || d.DEST,
-      // 시간 데이터가 'HH:MM' 형태라면 분으로 변환하는 로직이 필요할 수 있습니다.
-      // 여기서는 파일 내에 숫자로 된 필드가 있다고 가정하거나 기본값을 넣습니다.
-      dep_minutes: +d.DepartureMinutes || +d.dep_minutes || 480, 
-      duration: +d.Duration || +d.duration || 120,
+      FL_NUM: d.Flight_Num || d.FL_NUM || "000",
+      TAIL_NUM: d.Tail_Num || d.TAIL_NUM || "N/A",
+      DEST: d.Dest || d.DEST,
+      dep_minutes: +d.Dep_Minutes || +d.dep_minutes || 0,
+      duration: +d.Duration || +d.duration || 60,
       status: d.Status || d.status || "On-Time"
     }));
 
-    if (!formattedFlights.length) throw new Error("No flights found");
-    runVisualization(formattedFlights);
+    // 2. 공항 데이터에 존재하는 목적지만 필터링
+    const validFlights = formattedFlights.filter(f => airports[f.DEST]);
+
+    if (validFlights.length === 0) {
+      throw new Error("표시할 수 있는 유효한 비행 데이터가 없습니다.");
+    }
+
+    runVisualization(validFlights);
   })
   .catch(err => {
     console.error(err);
     d3.select("#canvas-wrapper")
+      .select(".error-msg").remove(); // 기존 메시지 중복 방지
+    
+    d3.select("#canvas-wrapper")
       .append("div")
       .attr("class", "error-msg")
-      .text("파일을 불러올 수 없거나 데이터 형식이 다릅니다. 콘솔(F12)을 확인하세요.");
+      .html(`에러 발생: ${err.message}<br/>콘솔(F12)을 확인하거나 Live Server로 실행 중인지 확인하세요.`);
   });
 /*  
 // ⭐ TEMP: 테스트용 데이터 직접 넣기 ⭐
