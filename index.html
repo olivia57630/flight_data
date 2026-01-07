@@ -374,9 +374,20 @@ fetch("flight.json")
 */
 // ⭐ TEMP: 테스트용 데이터 직접 넣기 ⭐
 const testData = [
-  { FL_NUM: "101", TAIL_NUM: "N1", DEST: "ATL", dep_minutes: 500, duration: 100, status: "On-Time" },
-  { FL_NUM: "102", TAIL_NUM: "N2", DEST: "SEA", dep_minutes: 550, duration: 240, status: "Delayed" },
-  { FL_NUM: "103", TAIL_NUM: "N3", DEST: "LGA", dep_minutes: 600, duration: 130, status: "Cancelled" }
+  // 아침 출발편
+  { FL_NUM: "UA101", TAIL_NUM: "N534UA", DEST: "ATL", dep_minutes: 480, duration: 120, status: "On-Time" },
+  { FL_NUM: "AA250", TAIL_NUM: "N789AA", DEST: "SEA", dep_minutes: 510, duration: 260, status: "Delayed" },
+  { FL_NUM: "DL432", TAIL_NUM: "N301DL", DEST: "MSP", dep_minutes: 540, duration: 80, status: "On-Time" },
+  
+  // 낮 시간대 (폭설 상황 가정: 지연 및 취소)
+  { FL_NUM: "UA505", TAIL_NUM: "N123UA", DEST: "LGA", dep_minutes: 720, duration: 130, status: "Cancelled" },
+  { FL_NUM: "AA992", TAIL_NUM: "N445AA", DEST: "SLC", dep_minutes: 750, duration: 200, status: "Delayed" },
+  { FL_NUM: "DL112", TAIL_NUM: "N222DL", DEST: "DTW", dep_minutes: 800, duration: 70, status: "On-Time" },
+  
+  // 오후 및 저녁편
+  { FL_NUM: "UA887", TAIL_NUM: "N998UA", DEST: "SEA", dep_minutes: 900, duration: 270, status: "On-Time" },
+  { FL_NUM: "AA104", TAIL_NUM: "N556AA", DEST: "ATL", dep_minutes: 1020, duration: 110, status: "On-Time" },
+  { FL_NUM: "DL773", TAIL_NUM: "N881DL", DEST: "MSP", dep_minutes: 1100, duration: 85, status: "Delayed" }
 ];
 
 runVisualization(testData);
