@@ -5070,13 +5070,5 @@
     "dep_minutes": 347,
     "duration": 151,
     "status": "On-Time"
-  },
-  {
-    "FL_NUM": NaN,
-    "TAIL_NUM": NaN,
-    "DEST": NaN,
-    "dep_minutes": NaN,
-    "duration": NaN,
-    "status": "On-Time"
   }
 ]
