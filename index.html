@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>US Flight Traffic Simulator (Multi-File)</title>
+  <title>US Flight Traffic Simulator</title>
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <style>
     html, body { margin: 0; padding: 0; height: 100%; font-family: 'Segoe UI', sans-serif; background: #0b1020; color: #f3f4f6; overflow: hidden; }
@@ -27,10 +27,10 @@
       <div class="clock" id="clock">00:00</div>
 
       <div class="stats-panel">
-        <div class="section-title">Cumulative Stats</div>
-        <div class="stat-item">On-Time: <span id="count-ontime" style="color:#10b981">0</span></div>
-        <div class="stat-item">Delayed: <span id="count-delayed" style="color:#f59e0b">0</span></div>
-        <div class="stat-item">Cancelled: <span id="count-cancelled" style="color:#ef4444">0</span></div>
+        <div class="section-title">Simulation Status</div>
+        <div class="stat-item">Airborne (Active): <span id="count-active" style="color:#60a5fa; font-weight:bold;">0</span></div>
+        <div class="stat-item">On-Time (Total): <span id="count-ontime" style="color:#10b981">0</span></div>
+        <div class="stat-item">Delayed (Total): <span id="count-delayed" style="color:#f59e0b">0</span></div>
       </div>
 
       <div class="filter-group">
@@ -40,11 +40,13 @@
       
       <div class="filter-group">
         <div class="section-title">Sim Speed</div>
-        <div style="display: flex; gap: 5px;">
+        <div style="display: flex; gap: 5px; flex-wrap: wrap;">
           <button class="speed-btn" data-speed="1">1x</button>
-          <button class="speed-btn active" data-speed="5">5x</button>
-          <button class="speed-btn" data-speed="20">20x</button>
+          <button class="speed-btn active" data-speed="20">20x</button>
+          <button class="speed-btn" data-speed="100">100x</button>
+          <button class="speed-btn" data-speed="500">Fast</button>
         </div>
+        <p style="font-size: 11px; color: #64748b; margin-top: 10px;">* 데이터가 적으면 빠르게 돌려보세요.</p>
       </div>
     </div>
 
@@ -58,48 +60,43 @@
   </div>
 
   <script>
+    // 1. 공항 좌표 (미국 주요 공항 추가)
     const airportCoords = {
-      "ORD": { x: 0.65, y: 0.35 }, "ATL": { x: 0.72, y: 0.65 },
-      "LAX": { x: 0.10, y: 0.65 }, "DFW": { x: 0.50, y: 0.70 },
-      "DEN": { x: 0.40, y: 0.40 }, "JFK": { x: 0.88, y: 0.30 },
-      "SLC": { x: 0.28, y: 0.42 }, "SEA": { x: 0.12, y: 0.15 }
+      "ORD": { x: 0.66, y: 0.35 }, "ATL": { x: 0.75, y: 0.65 },
+      "LAX": { x: 0.10, y: 0.65 }, "DFW": { x: 0.50, y: 0.75 },
+      "DEN": { x: 0.40, y: 0.45 }, "JFK": { x: 0.90, y: 0.32 },
+      "SFO": { x: 0.08, y: 0.50 }, "SEA": { x: 0.15, y: 0.15 },
+      "LAS": { x: 0.18, y: 0.58 }, "MIA": { x: 0.88, y: 0.88 },
+      "PHX": { x: 0.25, y: 0.70 }, "BOS": { x: 0.93, y: 0.25 }
     };
 
-    // --- 1. 파일 목록 설정 (나중에 파일이 추가되면 여기에 이름만 적으세요) ---
     const jsonFiles = [
-      { name: "ORD", path: "flight.json" }, // 지금은 flight.json이 ORD 데이터
-      // { name: "ATL", path: "atl.json" },
-      // { name: "LAX", path: "lax.json" }
+      { name: "ORD", path: "flight.json" }
     ];
 
     let allFlightData = [];
     let activeOrigins = new Set();
-    let currentTime = 0;
-    let speedMultiplier = 5;
+    let currentTime = 480; // 오전 8시부터 시작 (데이터가 보통 많은 시간)
+    let speedMultiplier = 20;
 
     const canvas = document.getElementById("flight-canvas");
     const ctx = canvas.getContext("2d");
 
-    // --- 2. 여러 JSON 파일을 병합하여 로드 ---
     async function init() {
       try {
         const loadPromises = jsonFiles.map(async (file) => {
           const res = await fetch(file.path);
           const data = await res.json();
-          // 각 파일 데이터에 ORIGIN 강제 할당 (파일 이름 기준)
           return data.map(d => ({ ...d, ORIGIN: file.name }));
         });
 
         const results = await Promise.all(loadPromises);
-        allFlightData = results.flat(); // 모든 배열을 하나로 합침
+        allFlightData = results.flat();
 
-        // 필터 UI 생성
         const filterBox = document.getElementById("airport-filters");
         jsonFiles.forEach(file => {
           activeOrigins.add(file.name);
           const label = document.createElement("label");
-          label.style.display = "block";
-          label.className = "checkbox-item";
           label.innerHTML = `<input type="checkbox" checked value="${file.name}"> ${file.name}`;
           label.querySelector("input").onchange = (e) => {
             if (e.target.checked) activeOrigins.add(file.name);
@@ -116,47 +113,60 @@
 
     function draw() {
       const { width, height } = canvas;
-      ctx.fillStyle = "rgba(15, 23, 42, 0.3)";
+      ctx.fillStyle = "rgba(15, 23, 42, 0.4)"; // 잔상 효과
       ctx.fillRect(0, 0, width, height);
 
       // 공항 마커
       Object.keys(airportCoords).forEach(key => {
         const {x, y} = airportCoords[key];
-        ctx.fillStyle = activeOrigins.has(key) ? "#475569" : "#1e293b";
-        ctx.beginPath(); ctx.arc(x * width, y * height, 3, 0, Math.PI*2); ctx.fill();
-        ctx.font = "10px sans-serif";
+        ctx.fillStyle = activeOrigins.has(key) ? "#334155" : "#1e293b";
+        ctx.beginPath(); ctx.arc(x * width, y * height, 4, 0, Math.PI*2); ctx.fill();
+        ctx.font = "11px sans-serif";
         ctx.fillStyle = "#64748b";
-        ctx.fillText(key, x * width + 5, y * height + 12);
+        ctx.fillText(key, x * width + 5, y * height + 15);
       });
 
-      let stats = { ontime: 0, delayed: 0, cancelled: 0 };
+      let stats = { ontime: 0, delayed: 0, active: 0 };
 
       allFlightData.forEach(f => {
         if (!activeOrigins.has(f.ORIGIN)) return;
 
+        // 누적 통계
         if (currentTime >= f.dep_minutes) {
           if (f.status === "On-Time") stats.ontime++;
           else if (f.status === "Delayed") stats.delayed++;
-          else if (f.status === "Cancelled") stats.cancelled++;
         }
 
+        // 비행 중인 기체 (Airborne)
         if (f.status !== "Cancelled" && currentTime >= f.dep_minutes && currentTime <= f.dep_minutes + f.duration) {
           const progress = (currentTime - f.dep_minutes) / f.duration;
           const start = airportCoords[f.ORIGIN];
           const end = airportCoords[f.DEST];
 
+          // 목적지 좌표가 등록되어 있을 때만 그림
           if (start && end) {
+            stats.active++;
             const curX = (start.x + (end.x - start.x) * progress) * width;
             const curY = (start.y + (end.y - start.y) * progress) * height;
+            
             ctx.fillStyle = f.status === "Delayed" ? "#f59e0b" : "#10b981";
-            ctx.beginPath(); ctx.arc(curX, curY, 4, 0, Math.PI * 2); ctx.fill();
+            ctx.shadowBlur = 5;
+            ctx.shadowColor = ctx.fillStyle;
+            ctx.beginPath(); ctx.arc(curX, curY, 5, 0, Math.PI * 2); ctx.fill();
+            ctx.shadowBlur = 0;
+            
+            // 비행기 번호
+            ctx.font = "10px monospace";
+            ctx.fillStyle = "white";
+            ctx.fillText(f.FL_NUM, curX + 7, curY - 5);
           }
         }
       });
 
+      // UI 업데이트
       document.getElementById("count-ontime").textContent = stats.ontime;
       document.getElementById("count-delayed").textContent = stats.delayed;
-      document.getElementById("count-cancelled").textContent = stats.cancelled;
+      document.getElementById("count-active").textContent = stats.active;
       document.getElementById("clock").textContent = formatTime(currentTime);
 
       currentTime += (0.1 * speedMultiplier);
@@ -170,37 +180,7 @@
       return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
     }
 
-    // 클릭 시 지연 정보 표시
-    canvas.addEventListener("click", (e) => {
-      const rect = canvas.getBoundingClientRect();
-      const mx = e.clientX - rect.left;
-      const my = e.clientY - rect.top;
-      let target = null;
-
-      allFlightData.forEach(f => {
-        if (f.status === "Delayed" && currentTime >= f.dep_minutes && currentTime <= f.dep_minutes + f.duration) {
-          const progress = (currentTime - f.dep_minutes) / f.duration;
-          const x = (airportCoords[f.ORIGIN].x + (airportCoords[f.DEST].x - airportCoords[f.ORIGIN].x) * progress) * canvas.width;
-          const y = (airportCoords[f.ORIGIN].y + (airportCoords[f.DEST].y - airportCoords[f.ORIGIN].y) * progress) * canvas.height;
-          if (Math.hypot(x - mx, y - my) < 15) target = f;
-        }
-      });
-
-      const infoBox = document.getElementById("delay-info");
-      if (target) {
-        infoBox.style.display = "block";
-        document.getElementById("delay-text").innerHTML = `
-          <strong>Flight ${target.FL_NUM}</strong><br>
-          ${target.ORIGIN} → ${target.DEST}<br>
-          Tail: ${target.TAIL_NUM}<br>
-          <span style="color:#fcd34d">Reason: ${target.cause || "Carrier Delay"}</span>
-        `;
-      } else {
-        infoBox.style.display = "none";
-      }
-    });
-
-    // 속도 조절
+    // 속도 조절 버튼
     document.querySelectorAll(".speed-btn").forEach(btn => {
       btn.onclick = () => {
         document.querySelectorAll(".speed-btn").forEach(b => b.classList.remove("active"));
@@ -214,7 +194,6 @@
       canvas.height = canvas.offsetHeight;
     };
     window.onresize();
-
     init();
   </script>
 </body>
