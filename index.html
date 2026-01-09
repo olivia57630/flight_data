@@ -60,12 +60,12 @@
       </div>
       
       <div class="filter-group">
-        <div class="section-title">Sim Speed</div>
+        <div class="section-title">Simulation Speed</div>
         <div style="display: flex; gap: 5px;">
             <button class="speed-btn" data-speed="0.5">0.5x</button>
             <button class="speed-btn active" data-speed="1">1.0x</button>
             <button class="speed-btn" data-speed="5">5.0x</button>
-            <button class="speed-btn" data-speed="20">20x</button>
+            <button class="speed-btn" data-speed="15">15x</button>
         </div>
       </div>
 
@@ -84,27 +84,59 @@
   </div>
 
   <script>
-    // 1. Configuration & Data
+    // 1. 공항 좌표 설정 (상대적 위치)
     const airports = {
-      "ORD": { x: 0.65, y: 0.35, name: "Chicago O'Hare" },
-      "ATL": { x: 0.72, y: 0.65, name: "Atlanta Hartsfield" },
-      "LAX": { x: 0.10, y: 0.65, name: "Los Angeles Intl" },
-      "DFW": { x: 0.50, y: 0.70, name: "Dallas/Fort Worth" },
-      "DEN": { x: 0.40, y: 0.40, name: "Denver Intl" },
-      "JFK": { x: 0.88, y: 0.30, name: "New York JFK" }
+      "ORD": { x: 0.65, y: 0.35, name: "Chicago" },
+      "ATL": { x: 0.72, y: 0.65, name: "Atlanta" },
+      "LAX": { x: 0.10, y: 0.65, name: "Los Angeles" },
+      "DFW": { x: 0.50, y: 0.70, name: "Dallas" },
+      "DEN": { x: 0.40, y: 0.40, name: "Denver" },
+      "JFK": { x: 0.88, y: 0.30, name: "New York" },
+      "SLC": { x: 0.28, y: 0.42, name: "Salt Lake City" }
     };
 
-    // JSON structure example
+    // 2. 입력하신 JSON 폼에 맞춘 데이터 구조
+    // ORIGIN을 데이터에 추가해야 특정 공항에서 출발시킬 수 있습니다.
     const flightData = [
-      { "id": "AA101", "origin": "ORD", "dest": "LAX", "dep": 360, "dur": 240, "status": "On-Time" },
-      { "id": "DL202", "origin": "ATL", "dest": "JFK", "dep": 380, "dur": 120, "status": "Delayed", "cause": "Heavy Rain & Wind" },
-      { "id": "UA303", "origin": "LAX", "dest": "DEN", "dep": 400, "dur": 150, "status": "Cancelled", "cause": "Engine Maintenance" },
-      { "id": "WN404", "origin": "DFW", "dest": "ATL", "dep": 420, "dur": 130, "status": "Delayed", "cause": "Late Arrival of Inbound Aircraft" },
-      { "id": "AS505", "origin": "DEN", "dest": "ORD", "dep": 450, "dur": 140, "status": "On-Time" },
-      { "id": "B6606", "origin": "JFK", "dest": "LAX", "dep": 480, "dur": 360, "status": "On-Time" },
-      { "id": "AA707", "origin": "ORD", "dest": "DFW", "dep": 500, "dur": 120, "status": "Delayed", "cause": "Air Traffic Control Congestion" },
-      { "id": "DL889", "origin": "ATL", "dest": "ORD", "dep": 520, "dur": 110, "status": "On-Time" },
-      { "id": "UA912", "origin": "DEN", "dest": "JFK", "dep": 540, "dur": 220, "status": "On-Time" }
+      { 
+        "FL_NUM": "2377", 
+        "TAIL_NUM": "N308DU", 
+        "ORIGIN": "ORD", // 추가됨
+        "DEST": "SLC", 
+        "dep_minutes": 1147.0, 
+        "duration": 217.0, 
+        "status": "On-Time" 
+      },
+      { 
+        "FL_NUM": "DL102", 
+        "TAIL_NUM": "N123AA", 
+        "ORIGIN": "LAX", 
+        "DEST": "JFK", 
+        "dep_minutes": 360, 
+        "duration": 300, 
+        "status": "Delayed",
+        "cause": "Weather: Severe Thunderstorms" 
+      },
+      { 
+        "FL_NUM": "UA445", 
+        "TAIL_NUM": "N999UA", 
+        "ORIGIN": "ATL", 
+        "DEST": "ORD", 
+        "dep_minutes": 400, 
+        "duration": 120, 
+        "status": "Cancelled",
+        "cause": "Mechanical Failure" 
+      },
+      { 
+        "FL_NUM": "WN882", 
+        "TAIL_NUM": "N772WN", 
+        "ORIGIN": "DFW", 
+        "DEST": "DEN", 
+        "dep_minutes": 450, 
+        "duration": 110, 
+        "status": "Delayed",
+        "cause": "Late Arrival of Inbound Flight" 
+      }
     ];
 
     const canvas = document.getElementById("flight-canvas");
@@ -113,13 +145,15 @@
     const delayInfo = document.getElementById("delay-info");
     const delayText = document.getElementById("delay-text");
     
-    let currentTime = 300; // Start at 05:00
+    let currentTime = 300; 
     let speedMultiplier = 1;
     let activeOrigins = new Set(Object.keys(airports));
 
-    // 2. Initialize UI
+    // 3. 필터 UI 생성
     const filterBox = document.getElementById("airport-filters");
     Object.keys(airports).forEach(code => {
+      // SLC는 목적지로 주로 쓰이므로 필터에서는 제외하거나 포함 가능
+      if(code === "SLC") return; 
       const label = document.createElement("label");
       label.className = "checkbox-item";
       label.innerHTML = `<input type="checkbox" checked value="${code}"> ${code}`;
@@ -137,15 +171,13 @@
     window.addEventListener("resize", resize);
     resize();
 
-    // 3. Render Loop
+    // 4. 메인 그리기 루프
     function draw() {
       const { width, height } = canvas;
-      
-      // Clear with trail effect
       ctx.fillStyle = "rgba(15, 23, 42, 0.3)";
       ctx.fillRect(0, 0, width, height);
 
-      // Draw Airports
+      // 공항 마커
       Object.keys(airports).forEach(key => {
         const {x, y} = airports[key];
         ctx.fillStyle = activeOrigins.has(key) ? "#334155" : "#1e293b";
@@ -157,32 +189,31 @@
 
       let stats = { ontime: 0, delayed: 0, cancelled: 0 };
 
-      // Process Flights
+      // 비행기 처리
       flightData.forEach(f => {
-        if (!activeOrigins.has(f.origin)) return;
+        // 필터링된 공항만 계산/표시
+        if (!activeOrigins.has(f.ORIGIN)) return;
 
-        // Statistics 집계
-        if (currentTime >= f.dep) {
+        // 누적 통계 계산
+        if (currentTime >= f.dep_minutes) {
           if (f.status === "On-Time") stats.ontime++;
           else if (f.status === "Delayed") stats.delayed++;
           else if (f.status === "Cancelled") stats.cancelled++;
         }
 
-        // Draw In-flight planes
-        if (f.status !== "Cancelled" && currentTime >= f.dep && currentTime <= f.dep + f.dur) {
-          const progress = (currentTime - f.dep) / f.dur;
-          const start = airports[f.origin];
-          const end = airports[f.dest];
+        // 비행 중인 기체 렌더링
+        if (f.status !== "Cancelled" && currentTime >= f.dep_minutes && currentTime <= f.dep_minutes + f.duration) {
+          const progress = (currentTime - f.dep_minutes) / f.duration;
+          const start = airports[f.ORIGIN];
+          const end = airports[f.DEST];
 
           if (start && end) {
             const curX = (start.x + (end.x - start.x) * progress) * width;
             const curY = (start.y + (end.y - start.y) * progress) * height;
 
-            // Color based on status
             ctx.fillStyle = f.status === "Delayed" ? "#f59e0b" : "#10b981";
             ctx.beginPath(); ctx.arc(curX, curY, 5, 0, Math.PI * 2); ctx.fill();
             
-            // Pulsing effect for delayed flights
             if (f.status === "Delayed") {
               ctx.strokeStyle = "rgba(245, 158, 11, 0.4)";
               ctx.lineWidth = 2;
@@ -191,19 +222,18 @@
 
             ctx.fillStyle = "white";
             ctx.font = "10px sans-serif";
-            ctx.fillText(f.id, curX + 8, curY - 8);
+            ctx.fillText(f.FL_NUM, curX + 8, curY - 8);
           }
         }
       });
 
-      // Update UI Stats
+      // UI 업데이트
       document.getElementById("count-ontime").textContent = stats.ontime;
       document.getElementById("count-delayed").textContent = stats.delayed;
       document.getElementById("count-cancelled").textContent = stats.cancelled;
 
-      // Update Clock
       clockEl.textContent = formatTime(currentTime);
-      currentTime += (0.1 * speedMultiplier); // Smoother time flow
+      currentTime += (0.2 * speedMultiplier);
       if (currentTime > 1440) currentTime = 0;
 
       requestAnimationFrame(draw);
@@ -215,7 +245,7 @@
       return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
     }
 
-    // 4. Interaction
+    // 클릭 시 지연 정보 표시
     canvas.addEventListener("click", (e) => {
       const rect = canvas.getBoundingClientRect();
       const mx = e.clientX - rect.left;
@@ -223,10 +253,10 @@
       
       let target = null;
       flightData.forEach(f => {
-        if (f.status === "Delayed" && currentTime >= f.dep && currentTime <= f.dep + f.dur) {
-          const progress = (currentTime - f.dep) / f.dur;
-          const x = (airports[f.origin].x + (airports[f.dest].x - airports[f.origin].x) * progress) * canvas.width;
-          const y = (airports[f.origin].y + (airports[f.dest].y - airports[f.origin].y) * progress) * canvas.height;
+        if (f.status === "Delayed" && currentTime >= f.dep_minutes && currentTime <= f.dep_minutes + f.duration) {
+          const progress = (currentTime - f.dep_minutes) / f.duration;
+          const x = (airports[f.ORIGIN].x + (airports[f.DEST].x - airports[f.ORIGIN].x) * progress) * canvas.width;
+          const y = (airports[f.ORIGIN].y + (airports[f.DEST].y - airports[f.ORIGIN].y) * progress) * canvas.height;
           
           if (Math.hypot(x - mx, y - my) < 15) target = f;
         }
@@ -234,7 +264,7 @@
 
       if (target) {
         delayInfo.style.display = "block";
-        delayText.innerHTML = `<strong>${target.id}</strong> (${target.origin} → ${target.dest})<br><br>Reason:<br><span style="color:#fcd34d">${target.cause}</span>`;
+        delayText.innerHTML = `<strong>Flight ${target.FL_NUM}</strong> (${target.ORIGIN} → ${target.DEST})<br>Tail: ${target.TAIL_NUM}<br><br>Reason:<br><span style="color:#fcd34d">${target.cause || "Carrier Delay"}</span>`;
       } else {
         delayInfo.style.display = "none";
       }
