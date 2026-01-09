@@ -2,76 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>US Flight Traffic Simulator (Pro)</title>
+  <title>US Flight Traffic Simulator (Pro) - Multi-Route Edition</title>
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <style>
-    html, body { margin: 0; padding: 0; height: 100%; font-family: 'Segoe UI', sans-serif; background: #0b1020; color: #f3f4f6; overflow: hidden; }
+    html, body { margin: 0; padding: 0; height: 100%; font-family: 'Segoe UI', sans-serif; background: #080d1a; color: #f3f4f6; overflow: hidden; }
     .container { display: flex; height: 100vh; padding: 20px; gap: 20px; box-sizing: border-box; flex-direction: column; }
     .main-layout { display: flex; flex: 1; gap: 20px; min-height: 0; }
     
-    /* 사이드바 스타일 */
     .sidebar { width: 320px; display: flex; flex-direction: column; gap: 15px; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 12px; border: 1px solid #1f2937; overflow-y: auto; }
     .clock { font-size: 42px; font-weight: bold; color: #60a5fa; font-family: monospace; text-align: center; border-bottom: 1px solid #374151; padding-bottom: 10px; }
     
     .stats-panel { background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; border: 1px solid #374151; }
     .section-title { font-size: 11px; color: #9ca3af; margin-bottom: 10px; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; }
     
-    /* 배속 버튼 스타일 */
-    .speed-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; margin-bottom: 10px; }
-    .speed-btn { background: #374151; border: none; color: white; padding: 6px; border-radius: 4px; cursor: pointer; font-size: 12px; transition: 0.2s; }
-    .speed-btn.active { background: #3b82f6; box-shadow: 0 0 10px rgba(59, 130, 246, 0.5); }
-    .speed-btn:hover { background: #4b5563; }
-    
-    input, select { background: #1f2937; border: 1px solid #374151; color: white; padding: 8px; border-radius: 4px; width: 100%; box-sizing: border-box; outline: none; }
-    input:focus, select:focus { border-color: #3b82f6; }
+    select[multiple] { height: 150px; background: #1f2937; border: 1px solid #374151; color: white; padding: 5px; border-radius: 4px; width: 100%; font-size: 13px; outline: none; }
+    input { background: #1f2937; border: 1px solid #374151; color: white; padding: 8px; border-radius: 4px; width: 100%; box-sizing: border-box; }
 
-    /* 지도 및 캔버스 */
-    #canvas-wrapper { flex: 1; position: relative; background: #0f172a; border-radius: 12px; border: 1px solid #374151; }
+    #canvas-wrapper { flex: 1; position: relative; background: #05080f; border-radius: 12px; border: 1px solid #374151; }
     canvas { width: 100%; height: 100%; display: block; }
 
-    /* 타임라인 슬라이더 */
     .timeline-container { background: rgba(255,255,255,0.05); padding: 15px 25px; border-radius: 12px; border: 1px solid #1f2937; display: flex; align-items: center; gap: 20px; }
     #time-slider { flex: 1; cursor: pointer; accent-color: #3b82f6; }
 
-    .filter-item { margin-bottom: 8px; font-size: 14px; display: flex; align-items: center; gap: 8px; cursor: pointer; }
-    .filter-item input { width: auto; cursor: pointer; }
+    .stat-row { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 14px; }
+    .stat-val { font-family: monospace; font-weight: bold; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="main-layout">
       <div class="sidebar">
-        <h2 style="margin:0; font-size: 20px; letter-spacing: -0.5px;">US SKYLINE PRO</h2>
-        <div class="clock" id="clock">08:00</div>
+        <h2 style="margin:0; font-size: 18px; color: #94a3b8;">US AIRSPACE MONITOR</h2>
+        <div class="clock" id="clock">00:00</div>
 
         <div class="stats-panel">
-          <div class="section-title">📅 Date Selection</div>
-          <select id="date-selector" style="margin-bottom: 10px;"></select>
-          <div style="font-size: 11px; color: #64748b; font-style: italic;" id="day-of-week">Selected: Loading...</div>
+          <div class="section-title">📅 MULTI-DATE SELECT</div>
+          <select id="date-selector" multiple></select>
+          <div style="font-size: 10px; color: #4b5563; margin-top: 5px;">Hold Ctrl/Cmd for Multiple Days</div>
         </div>
 
         <div class="stats-panel">
-          <div class="section-title">⚡ Simulation Speed</div>
-          <div class="speed-grid">
-            <button class="speed-btn" data-speed="1">1x</button>
-            <button class="speed-btn" data-speed="20">20x</button>
-            <button class="speed-btn" data-speed="60">60x</button>
-            <button class="speed-btn active" id="custom-speed-btn">Custom</button>
-          </div>
-          <input type="number" id="speed-input" value="100" min="0.1" step="0.5" placeholder="Custom Speed">
+          <div class="section-title">⚡ SIM SPEED</div>
+          <input type="number" id="speed-input" value="100" min="1" step="10">
         </div>
 
         <div class="stats-panel">
-          <div class="section-title">📍 Origin Filter</div>
+          <div class="section-title">📍 ORIGIN FILTER</div>
           <div id="airport-filters"></div>
         </div>
 
         <div class="stats-panel">
-          <div class="section-title">Live Statistics</div>
-          <div class="stat-item">Airborne: <span id="count-active" style="color:#60a5fa; font-weight:bold;">0</span></div>
-          <hr style="border: 0; border-top: 1px solid #374151; margin: 10px 0;">
-          <div class="stat-item" style="font-size: 12px;">On-Time (Acc): <span id="count-ontime" style="color:#10b981">0</span></div>
-          <div class="stat-item" style="font-size: 12px;">Delayed (Acc): <span id="count-delayed" style="color:#f59e0b">0</span></div>
+          <div class="section-title">LIVE STATISTICS</div>
+          <div class="stat-row">Active: <span id="count-active" class="stat-val" style="color:#60a5fa">0</span></div>
+          <div class="stat-row">On-Time: <span id="count-ontime" class="stat-val" style="color:#10b981">0</span></div>
+          <div class="stat-row">Delayed: <span id="count-delayed" class="stat-val" style="color:#f59e0b">0</span></div>
+          <div class="stat-row">Cancelled: <span id="count-cancelled" class="stat-val" style="color:#ef4444">0</span></div>
         </div>
       </div>
 
@@ -81,14 +66,13 @@
     </div>
 
     <div class="timeline-container">
-      <span style="font-family: monospace; font-weight: bold; color: #9ca3af;">00:00</span>
+      <span style="color: #4b5563; font-family: monospace;">00:00</span>
       <input type="range" id="time-slider" min="0" max="1440" value="480">
-      <span style="font-family: monospace; font-weight: bold; color: #9ca3af;">23:59</span>
+      <span style="color: #4b5563; font-family: monospace;">23:59</span>
     </div>
   </div>
 
   <script>
-    // 공항 좌표 (미국 지도 비율 기준)
     const airportCoords = {
       "ORD": { x: 0.66, y: 0.35 }, "ATL": { x: 0.75, y: 0.65 },
       "LAX": { x: 0.10, y: 0.65 }, "DFW": { x: 0.50, y: 0.75 },
@@ -96,7 +80,6 @@
       "SEA": { x: 0.15, y: 0.15 }, "SLC": { x: 0.25, y: 0.45 }
     };
 
-    // 모든 통합 JSON 파일 목록
     const jsonFiles = [
       { name: "ORD", path: "flight_ord_all.json" },
       { name: "JFK", path: "flight_jfk_all.json" },
@@ -110,7 +93,7 @@
 
     let allFlightData = [];
     let activeOrigins = new Set();
-    let selectedDate = "";
+    let selectedDates = new Set();
     let currentTime = 480; 
     let speedMultiplier = 100;
     let isDragging = false;
@@ -119,25 +102,10 @@
     const ctx = canvas.getContext("2d");
     const timeSlider = document.getElementById("time-slider");
 
-    // 1. 배속 제어 로직
-    document.querySelectorAll('.speed-btn').forEach(btn => {
-      btn.onclick = (e) => {
-        document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
-        e.target.classList.add('active');
-        if(e.target.dataset.speed) {
-          speedMultiplier = parseFloat(e.target.dataset.speed);
-          document.getElementById('speed-input').value = speedMultiplier;
-        }
-      };
-    });
-
     document.getElementById("speed-input").oninput = (e) => {
       speedMultiplier = parseFloat(e.target.value) || 0;
-      document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
-      document.getElementById('custom-speed-btn').classList.add('active');
     };
 
-    // 2. 타임라인 조작 로직
     timeSlider.oninput = (e) => { isDragging = true; currentTime = parseInt(e.target.value); };
     timeSlider.onchange = () => { isDragging = false; };
 
@@ -147,94 +115,83 @@
           const res = await fetch(file.path);
           const data = await res.json();
           return data.map(d => ({ ...d, ORIGIN: file.name }));
-        } catch(e) { 
-          console.warn(`Could not load ${file.path}`);
-          return []; 
-        }
+        } catch(e) { return []; }
       });
 
       const results = await Promise.all(loadPromises);
       allFlightData = results.flat();
 
-      if (allFlightData.length === 0) {
-        alert("데이터 파일을 찾을 수 없습니다. JSON 파일들이 같은 폴더에 있는지 확인하세요.");
-        return;
-      }
-
-      // 날짜 목록 추출 및 정렬
       const dateSet = [...new Set(allFlightData.map(d => d.date))].sort();
       const selector = document.getElementById("date-selector");
-      
       dateSet.forEach(d => {
         const opt = document.createElement("option");
         opt.value = d;
-        const dateObj = new Date(d);
-        const dayName = dateObj.toLocaleDateString('ko-KR', { weekday: 'short' });
-        opt.textContent = `${d} (${dayName})`;
+        opt.textContent = d;
         selector.appendChild(opt);
       });
-
-      selectedDate = dateSet[0];
-      updateDayDisplay();
-
-      selector.onchange = (e) => { 
-        selectedDate = e.target.value; 
-        updateDayDisplay();
+      
+      selector.selectedIndex = 0;
+      selectedDates.add(dateSet[0]);
+      selector.onchange = (e) => {
+        selectedDates = new Set(Array.from(e.target.selectedOptions).map(opt => opt.value));
       };
 
-      // 공항 체크박스 필터 생성
       const filterBox = document.getElementById("airport-filters");
       jsonFiles.forEach(file => {
         activeOrigins.add(file.name);
-        const label = document.createElement("label");
-        label.className = "filter-item";
-        label.innerHTML = `<input type="checkbox" checked id="chk-${file.name}"> ${file.name}`;
-        label.querySelector("input").onchange = (e) => {
+        const div = document.createElement("div");
+        div.style.fontSize = "12px";
+        div.innerHTML = `<label><input type="checkbox" checked id="chk-${file.name}"> ${file.name}</label>`;
+        div.querySelector("input").onchange = (e) => {
           if (e.target.checked) activeOrigins.add(file.name);
           else activeOrigins.delete(file.name);
         };
-        filterBox.appendChild(label);
+        filterBox.appendChild(div);
       });
 
       requestAnimationFrame(draw);
     }
 
-    function updateDayDisplay() {
-      const dateObj = new Date(selectedDate);
-      const dayLong = dateObj.toLocaleDateString('en-US', { weekday: 'long' });
-      document.getElementById("day-of-week").textContent = `Selected: ${dayLong}`;
-    }
-
     function draw() {
       const { width, height } = canvas;
-      // 잔상 효과를 위해 투명하게 덮기
-      ctx.fillStyle = "rgba(15, 23, 42, 0.3)"; 
+      ctx.fillStyle = "rgba(5, 8, 15, 0.5)"; 
       ctx.fillRect(0, 0, width, height);
 
-      // 1. 공항 포인트 그리기
-      Object.keys(airportCoords).forEach(key => {
-        const {x, y} = airportCoords[key];
-        const isActive = activeOrigins.has(key);
-        ctx.fillStyle = isActive ? "#3b82f6" : "#1e293b";
-        ctx.beginPath(); ctx.arc(x * width, y * height, 5, 0, Math.PI*2); ctx.fill();
-        ctx.font = "bold 12px sans-serif";
-        ctx.fillStyle = isActive ? "#94a3b8" : "#475569";
-        ctx.fillText(key, x * width + 8, y * height + 4);
-      });
+      let stats = { ontime: 0, delayed: 0, cancelled: 0, active: 0 };
 
-      let stats = { ontime: 0, delayed: 0, active: 0 };
-
-      // 2. 비행기 데이터 처리
+      // 1. 점선 경로 가이드 그리기
       allFlightData.forEach(f => {
-        if (!activeOrigins.has(f.ORIGIN) || f.date !== selectedDate) return;
+        if (!activeOrigins.has(f.ORIGIN) || !selectedDates.has(f.date)) return;
+        
+        const start = airportCoords[f.ORIGIN];
+        const end = airportCoords[f.DEST];
+        
+        if (start && end) {
+          ctx.beginPath();
+          ctx.setLineDash([2, 8]); // 점선 설정
+          ctx.moveTo(start.x * width, start.y * height);
+          ctx.lineTo(end.x * width, end.y * height);
+          ctx.strokeStyle = "rgba(255, 255, 255, 0.05)"; 
+          ctx.stroke();
+        }
+      });
+      ctx.setLineDash([]); // 점선 초기화
 
-        // 누적 통계 계산
-        if (currentTime >= f.dep_minutes) {
-          if (f.status === "On-Time") stats.ontime++;
-          else stats.delayed++;
+      // 2. 비행기 이동 및 통계
+      allFlightData.forEach(f => {
+        if (!activeOrigins.has(f.ORIGIN) || !selectedDates.has(f.date)) return;
+
+        // 결항(Cancelled) 데이터는 별도 필드가 없을 경우 status로 판단
+        if (f.status === "Cancelled") {
+            if (currentTime >= f.dep_minutes) stats.cancelled++;
+            return; 
         }
 
-        // 실시간 비행 위치 계산
+        if (currentTime >= f.dep_minutes) {
+          if (f.status === "Delayed") stats.delayed++;
+          else stats.ontime++;
+        }
+
         if (currentTime >= f.dep_minutes && currentTime <= f.dep_minutes + f.duration) {
           const progress = (currentTime - f.dep_minutes) / f.duration;
           const start = airportCoords[f.ORIGIN];
@@ -245,30 +202,40 @@
             const curX = (start.x + (end.x - start.x) * progress) * width;
             const curY = (start.y + (end.y - start.y) * progress) * height;
             
-            // 지연 항공편은 주황색, 정상은 초록색
+            // 비행기 점
             ctx.fillStyle = f.status === "Delayed" ? "#f59e0b" : "#10b981";
-            ctx.beginPath(); ctx.arc(curX, curY, 4, 0, Math.PI * 2); ctx.fill();
+            ctx.beginPath();
+            ctx.arc(curX, curY, 3, 0, Math.PI * 2);
+            ctx.fill();
             
-            // 배속이 낮을 때만 편명 표시 (가독성 유지)
-            if (speedMultiplier <= 150) {
-              ctx.font = "10px monospace";
-              ctx.fillStyle = "rgba(255,255,255,0.7)";
-              ctx.fillText(f.FL_NUM, curX + 6, curY - 4);
-            }
+            // 글로우 효과
+            ctx.shadowBlur = 8;
+            ctx.shadowColor = f.status === "Delayed" ? "#f59e0b" : "#10b981";
+            ctx.fill();
+            ctx.shadowBlur = 0;
           }
         }
       });
 
-      // 3. UI 업데이트
+      // 공항 이름 표시
+      Object.keys(airportCoords).forEach(key => {
+        const {x, y} = airportCoords[key];
+        ctx.fillStyle = "#1f2937";
+        ctx.beginPath(); ctx.arc(x * width, y * height, 4, 0, Math.PI*2); ctx.fill();
+        ctx.font = "10px sans-serif";
+        ctx.fillStyle = "#4b5563";
+        ctx.fillText(key, x * width + 6, y * height + 3);
+      });
+
+      // UI 업데이트
       document.getElementById("count-active").textContent = stats.active.toLocaleString();
       document.getElementById("count-ontime").textContent = stats.ontime.toLocaleString();
       document.getElementById("count-delayed").textContent = stats.delayed.toLocaleString();
+      document.getElementById("count-cancelled").textContent = stats.cancelled.toLocaleString();
       document.getElementById("clock").textContent = formatTime(currentTime);
       if(!isDragging) timeSlider.value = currentTime;
 
-      // 4. 시간 흐름 업데이트
       if (!isDragging) {
-        // 실제 시간 기반이 아닌 프레임당 배속 적용 (0.1분 단위 가속)
         currentTime += (0.1 * speedMultiplier / 60); 
         if (currentTime > 1440) currentTime = 0;
       }
