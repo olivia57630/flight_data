@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>US Airspace Monitor - Full Feature</title>
+  <title>US Airspace Monitor - Delay Tracker</title>
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://unpkg.com/topojson@3"></script>
   <style>
@@ -11,50 +11,49 @@
       --sidebar-bg: #ffffff;
       --accent-blue: #3b82f6;
       --text-main: #1e293b;
-      --text-muted: #64748b;
       --border-color: #e2e8f0;
-      --success: #10b981;
       --warning: #f59e0b;
+      --success: #10b981;
     }
 
-    html, body { margin: 0; padding: 0; height: 100%; font-family: 'Inter', sans-serif; background: var(--bg-color); color: var(--text-main); overflow: hidden; }
-    .container { display: flex; height: 100vh; padding: 20px; gap: 20px; box-sizing: border-box; flex-direction: column; }
-    .main-layout { display: flex; flex: 1; gap: 20px; min-height: 0; }
+    html, body { margin: 0; padding: 0; height: 100%; font-family: 'Inter', sans-serif; background: var(--bg-color); overflow: hidden; }
+    .container { display: flex; height: 100vh; padding: 15px; gap: 15px; box-sizing: border-box; flex-direction: column; }
+    .main-layout { display: flex; flex: 1; gap: 15px; min-height: 0; }
     
-    .sidebar { width: 320px; display: flex; flex-direction: column; gap: 15px; background: var(--sidebar-bg); padding: 20px; border-radius: 20px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); border: 1px solid var(--border-color); overflow-y: auto; }
-    .clock { font-size: 40px; font-weight: 800; color: var(--accent-blue); font-family: monospace; text-align: center; }
+    .sidebar { width: 300px; display: flex; flex-direction: column; gap: 12px; background: var(--sidebar-bg); padding: 18px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid var(--border-color); overflow-y: auto; }
+    .clock { font-size: 36px; font-weight: 800; color: var(--accent-blue); font-family: monospace; text-align: center; margin-bottom: 10px; }
     
-    .stats-panel { background: #f8fafc; padding: 15px; border-radius: 12px; border: 1px solid var(--border-color); }
-    .section-title { font-size: 11px; color: var(--text-muted); margin-bottom: 10px; text-transform: uppercase; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
-    
-    .btn-group { display: flex; gap: 5px; margin-top: 10px; }
-    .ctrl-btn { flex: 1; padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); background: #fff; cursor: pointer; font-weight: 700; font-size: 13px; }
+    .stats-panel { background: #f1f5f9; padding: 12px; border-radius: 10px; border: 1px solid var(--border-color); }
+    .section-title { font-size: 11px; color: #64748b; margin-bottom: 8px; text-transform: uppercase; font-weight: 700; }
 
-    select[multiple] { height: 100px; background: #fff; border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; width: 100%; font-size: 12px; }
-    .help-text { font-size: 10px; color: #ef4444; margin-top: 5px; font-weight: 600; }
+    #canvas-wrapper { flex: 1; position: relative; background: #fff; border-radius: 15px; border: 1px solid var(--border-color); }
+    canvas { width: 100%; height: 100%; display: block; }
 
-    #canvas-wrapper { flex: 1; position: relative; background: #fff; border-radius: 20px; border: 1px solid var(--border-color); overflow: hidden; }
-    canvas { width: 100%; height: 100%; display: block; cursor: crosshair; }
-
-    /* 툴팁 스타일 */
+    /* 툴팁 디자인 강화 */
     #tooltip { 
-      position: absolute; 
-      background: rgba(255, 255, 255, 0.95); 
+      position: fixed; 
+      background: rgba(255, 255, 255, 0.98); 
       border: 2px solid var(--accent-blue); 
-      padding: 10px; 
-      border-radius: 8px; 
-      font-size: 12px; 
+      padding: 12px; 
+      border-radius: 10px; 
+      font-size: 13px; 
       pointer-events: none; 
       visibility: hidden; 
-      z-index: 1000; 
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      line-height: 1.5;
+      z-index: 9999; 
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      color: #1e293b;
+      line-height: 1.6;
     }
 
-    .live-count-badge { background: var(--accent-blue); color: white; padding: 2px 8px; border-radius: 20px; font-size: 12px; }
+    .delay-text { color: var(--warning); font-weight: bold; font-size: 14px; border-top: 1px solid #eee; margin-top: 5px; padding-top: 5px; }
+    .ontime-text { color: var(--success); font-weight: bold; }
 
-    .timeline-container { background: var(--sidebar-bg); padding: 20px; border-radius: 20px; border: 1px solid var(--border-color); }
-    #time-slider { width: 100%; cursor: pointer; accent-color: var(--accent-blue); }
+    .btn-group { display: flex; gap: 5px; }
+    .ctrl-btn { flex: 1; padding: 8px; border-radius: 6px; border: 1px solid var(--border-color); background: white; cursor: pointer; font-weight: bold; }
+    .live-num { font-size: 22px; font-weight: 800; color: #ef4444; }
+
+    .timeline-container { background: white; padding: 15px; border-radius: 15px; border: 1px solid var(--border-color); }
+    #time-slider { width: 100%; accent-color: var(--accent-blue); }
   </style>
 </head>
 <body>
@@ -69,23 +68,18 @@
         </div>
 
         <div class="stats-panel">
+          <div class="section-title">🛰 LIVE ON SCREEN</div>
+          <div class="live-num" id="live-count">0 FLIGHTS</div>
+        </div>
+
+        <div class="stats-panel">
           <div class="section-title">📅 DATE SELECTION</div>
-          <select id="date-selector" multiple></select>
-          <div class="help-text">💡 Ctrl 키를 누른 채 클릭하여 다중 선택</div>
+          <select id="date-selector" multiple style="width:100%; height:100px; font-size:12px;"></select>
         </div>
 
         <div class="stats-panel">
-          <div class="section-title">
-            📍 AIRPORT FILTER
-            <button id="select-all" style="font-size: 10px; padding: 2px 5px; cursor: pointer;">Select All</button>
-          </div>
-          <div id="airport-filters" style="max-height: 120px; overflow-y: auto;"></div>
-        </div>
-
-        <div class="stats-panel">
-          <div class="section-title">🛰 LIVE TRACKING <span class="live-count-badge" id="live-count">0</span></div>
-          <div style="display:flex; justify-content:space-between; margin-bottom:5px;">On-Time (Accum): <span id="total-ontime" style="color:var(--success); font-weight:bold;">0</span></div>
-          <div style="display:flex; justify-content:space-between;">Delayed (Accum): <span id="total-delayed" style="color:var(--warning); font-weight:bold;">0</span></div>
+          <div class="section-title">📍 ORIGIN AIRPORTS</div>
+          <div id="airport-filters" style="font-size: 12px; max-height: 150px; overflow-y: auto;"></div>
         </div>
       </div>
 
@@ -93,34 +87,30 @@
         <canvas id="flight-canvas"></canvas>
       </div>
     </div>
-
     <div class="timeline-container">
-      <input type="range" id="time-slider" min="0" max="1440" value="480">
+      <input type="range" id="time-slider" min="0" max="1440" value="480" step="1">
     </div>
   </div>
 
   <script>
     const airportLocs = {
-      "SEA": [-122.3088, 47.4502], "SFO": [-122.3748, 37.6190], "LAX": [-118.4085, 33.9416],
-      "SLC": [-111.9777, 40.7899], "DEN": [-104.6737, 39.8561], "DFW": [-97.0403, 32.8998],
-      "ORD": [-87.9073, 41.9742], "ATL": [-84.4277, 33.6407], "JFK": [-73.7781, 40.6413], "MCO": [-81.3090, 28.4241]
+      "SEA": [-122.3088, 47.4502], "LAX": [-118.4085, 33.9416], "SLC": [-111.9777, 40.7899], 
+      "DEN": [-104.6737, 39.8561], "DFW": [-97.0403, 32.8998], "ORD": [-87.9073, 41.9742], 
+      "ATL": [-84.4277, 33.6407], "JFK": [-73.7781, 40.6413]
     };
 
     let allFlightData = [], activeOrigins = new Set(), selectedDates = new Set();
-    let currentTime = 480, speedMultiplier = 120, isPaused = false;
-    let usaMap = null, flightsOnScreen = [];
+    let currentTime = 480, isPaused = false;
+    let usaMap = null, interactivePoints = [];
 
     const canvas = document.getElementById("flight-canvas"), ctx = canvas.getContext("2d");
     const tooltip = document.getElementById("tooltip");
-
-    document.getElementById("pause-btn").onclick = () => isPaused = true;
-    document.getElementById("play-btn").onclick = () => isPaused = false;
 
     async function init() {
       const us = await d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/nation-10m.json");
       usaMap = topojson.feature(us, us.objects.nation).features[0];
 
-      const airportNames = ["ORD", "JFK", "ATL", "LAX", "DEN", "DFW", "SEA", "SLC"];
+      const airportNames = Object.keys(airportLocs);
       const results = await Promise.all(airportNames.map(async name => {
         try { 
           const r = await fetch(`flight_${name.toLowerCase()}_all.json`);
@@ -139,119 +129,114 @@
       const box = document.getElementById("airport-filters");
       airportNames.forEach(f => {
         activeOrigins.add(f);
-        const l = document.createElement("label");
-        l.style = "display:block; font-size:12px; margin-bottom:4px;";
-        l.innerHTML = `<input type="checkbox" checked value="${f}"> <b>${f}</b>`;
-        l.querySelector("input").onchange = (e) => e.target.checked ? activeOrigins.add(f) : activeOrigins.delete(f);
-        box.appendChild(l);
+        box.innerHTML += `<label style="display:block; margin-bottom:3px;"><input type="checkbox" checked value="${f}" onchange="this.checked ? activeOrigins.add('${f}') : activeOrigins.delete('${f}')"> <b>${f}</b></label>`;
       });
 
-      document.getElementById("select-all").onclick = () => {
-        const checks = box.querySelectorAll("input");
-        const allChecked = Array.from(checks).every(c => c.checked);
-        checks.forEach(c => { c.checked = !allChecked; if(c.checked) activeOrigins.add(c.value); else activeOrigins.delete(c.value); });
-      };
+      // 마우스 좌표 보정 및 툴팁 로직
+      canvas.addEventListener("mousemove", (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+        const mx = (e.clientX - rect.left) * scaleX;
+        const my = (e.clientY - rect.top) * scaleY;
 
-      canvas.addEventListener("mousemove", handleMouseMove);
+        let hovered = null;
+        for (const p of interactivePoints) {
+          const dist = Math.hypot(p.x - mx, p.y - my);
+          if (dist < 8) { hovered = p; break; }
+        }
+
+        if (hovered) {
+          tooltip.style.visibility = "visible";
+          tooltip.style.left = (e.clientX + 15) + "px";
+          tooltip.style.top = (e.clientY + 15) + "px";
+          
+          if (hovered.type === 'airport') {
+            tooltip.innerHTML = `<strong>📍 ORIGIN: ${hovered.id}</strong><br><span style="color:#64748b; font-size:11px;">Active departures shown</span>`;
+          } else {
+            const f = hovered.data;
+            const delayInfo = f.status === "Delayed" ? `<div class="delay-text">⚠️ Delay: ${f.delay_amount} min</div>` : `<div class="ontime-text">✅ On-Time</div>`;
+            tooltip.innerHTML = `
+              <div style="font-weight:bold; color:#3b82f6; border-bottom:1px solid #eee; padding-bottom:3px; margin-bottom:5px;">✈ Flight ${f.FL_NUM}</div>
+              <strong>To:</strong> ${f.DEST}<br>
+              <strong>Tail:</strong> ${f.TAIL_NUM || 'N/A'}<br>
+              ${delayInfo}
+            `;
+          }
+        } else {
+          tooltip.style.visibility = "hidden";
+        }
+      });
+
       requestAnimationFrame(draw);
-    }
-
-    function handleMouseMove(e) {
-      const rect = canvas.getBoundingClientRect();
-      const mx = e.clientX - rect.left, my = e.clientY - rect.top;
-      let hovered = null;
-
-      for (const f of flightsOnScreen) {
-        const dist = Math.hypot(f.x - mx, f.y - my);
-        if (dist < 6) { hovered = f; break; }
-      }
-
-      if (hovered) {
-        tooltip.style.visibility = "visible";
-        tooltip.style.left = (e.clientX + 15) + "px";
-        tooltip.style.top = (e.clientY + 15) + "px";
-        tooltip.innerHTML = `
-          <strong>✈ Flight: ${hovered.data.FL_NUM}</strong><br>
-          Dest: ${hovered.data.DEST}<br>
-          Status: <span style="color:${hovered.data.status === 'Delayed' ? 'orange' : 'green'}">${hovered.data.status}</span><br>
-          ${hovered.data.delay_amount > 0 ? `Delay: ${hovered.data.delay_amount} min` : ''}
-        `;
-      } else {
-        tooltip.style.visibility = "hidden";
-      }
     }
 
     function draw() {
       const { width, height } = canvas;
       ctx.clearRect(0, 0, width, height);
       const projection = d3.geoAlbersUsa().scale(width * 1.3).translate([width / 2, height / 2.2]);
-      const path = d3.geoPath(projection, ctx);
+      interactivePoints = [];
 
       if (usaMap) {
         ctx.beginPath(); ctx.strokeStyle = "#e2e8f0"; ctx.lineWidth = 1.5;
-        path(usaMap); ctx.stroke(); ctx.fillStyle = "#fafafa"; ctx.fill();
+        d3.geoPath(projection, ctx)(usaMap); ctx.stroke(); ctx.fillStyle = "#fafafa"; ctx.fill();
       }
 
-      let tO = 0, tD = 0;
-      flightsOnScreen = [];
+      // 공항 마커
+      Object.entries(airportLocs).forEach(([key, loc]) => {
+        const p = projection(loc);
+        if (p) {
+          interactivePoints.push({ x: p[0], y: p[1], id: key, type: 'airport' });
+          ctx.fillStyle = activeOrigins.has(key) ? "#3b82f6" : "#cbd5e1";
+          ctx.beginPath(); ctx.arc(p[0], p[1], 6, 0, Math.PI*2); ctx.fill();
+          ctx.fillStyle = "#64748b"; ctx.font = "bold 12px Inter";
+          ctx.fillText(key, p[0] + 10, p[1] + 5);
+        }
+      });
 
+      // 비행기 궤적 및 점
+      let liveCount = 0;
       allFlightData.forEach(f => {
         if (!activeOrigins.has(f.ORIGIN) || !selectedDates.has(f.date)) return;
-
-        if (currentTime >= f.dep_minutes) {
-          if (f.status === "Delayed") tD++; else tO++;
-        }
 
         if (currentTime >= f.dep_minutes && currentTime <= f.dep_minutes + f.duration) {
           const s = projection(airportLocs[f.ORIGIN]), e = projection(airportLocs[f.DEST]);
           if (s && e) {
-            // 경로 점선
-            ctx.setLineDash([3, 5]); ctx.strokeStyle = "rgba(203, 213, 224, 0.4)";
-            ctx.beginPath(); ctx.moveTo(s[0], s[1]); ctx.lineTo(e[0], e[1]); ctx.stroke();
-            ctx.setLineDash([]);
-
             const p = (currentTime - f.dep_minutes) / f.duration;
             const cx = s[0] + (e[0] - s[0]) * p, cy = s[1] + (e[1] - s[1]) * p;
             
-            // 화면 상의 비행기 정보 저장 (툴팁용)
-            flightsOnScreen.push({ x: cx, y: cy, data: f });
-            
+            interactivePoints.push({ x: cx, y: cy, data: f, type: 'flight' });
+            liveCount++;
+
+            // 지연된 항공편은 더 크게 표시
             ctx.fillStyle = f.status === "Delayed" ? "#f59e0b" : "#10b981";
-            ctx.beginPath(); ctx.arc(cx, cy, f.status === "Delayed" ? 4.5 : 3.5, 0, Math.PI*2); ctx.fill();
+            ctx.beginPath(); ctx.arc(cx, cy, f.status === "Delayed" ? 5 : 4, 0, Math.PI*2); ctx.fill();
             if(f.status === "Delayed") { ctx.strokeStyle = "white"; ctx.lineWidth = 1; ctx.stroke(); }
           }
         }
       });
 
-      // 공항 마커 및 이름
-      Object.entries(airportLocs).forEach(([key, loc]) => {
-        const p = projection(loc);
-        if (p) {
-          ctx.fillStyle = activeOrigins.has(key) ? "#3b82f6" : "#cbd5e1";
-          ctx.beginPath(); ctx.arc(p[0], p[1], 5, 0, Math.PI*2); ctx.fill();
-          ctx.fillStyle = "#64748b"; ctx.font = "bold 11px Inter"; ctx.fillText(key, p[0] + 8, p[1] + 4);
-        }
-      });
-
-      // UI 업데이트
-      document.getElementById("total-ontime").textContent = tO.toLocaleString();
-      document.getElementById("total-delayed").textContent = tD.toLocaleString();
-      document.getElementById("live-count").textContent = flightsOnScreen.length;
+      document.getElementById("live-count").textContent = liveCount + " FLIGHTS";
       document.getElementById("clock").textContent = `${String(Math.floor(currentTime/60)%24).padStart(2,'0')}:${String(Math.floor(currentTime%60)).padStart(2,'0')}`;
 
       if (!isPaused) {
         currentTime += 0.2;
-        if (currentTime > 1440) currentTime = 0;
+        if (currentTime >= 1440) currentTime = 0;
         document.getElementById("time-slider").value = currentTime;
       }
       requestAnimationFrame(draw);
     }
 
-    window.onresize = () => { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; };
+    document.getElementById("pause-btn").onclick = () => isPaused = true;
+    document.getElementById("play-btn").onclick = () => isPaused = false;
+    document.getElementById("time-slider").oninput = (e) => { currentTime = parseFloat(e.target.value); isPaused = true; };
+
+    window.onresize = () => {
+      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+    };
     window.onresize();
     init();
-
-    document.getElementById("time-slider").oninput = (e) => { currentTime = parseInt(e.target.value); isPaused = true; };
   </script>
 </body>
 </html>
