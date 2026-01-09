@@ -1,0 +1,2846 @@
+[
+    {
+        "date": "01/01/2025",
+        "FL_NUM": "1178.0",
+        "TAIL_NUM": "N325DN",
+        "DEST": "ATL",
+        "dep_minutes": 600.0,
+        "duration": 130.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/01/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N836DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 125.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/01/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N128DN",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 125.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/01/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N702TW",
+        "DEST": "ATL",
+        "dep_minutes": 825.0,
+        "duration": 117.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/01/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N315DU",
+        "DEST": "SEA",
+        "dep_minutes": 360.0,
+        "duration": 295.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/01/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N302DU",
+        "DEST": "SEA",
+        "dep_minutes": 850.0,
+        "duration": 290.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/01/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N318DU",
+        "DEST": "SLC",
+        "dep_minutes": 450.0,
+        "duration": 229.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/01/2025",
+        "FL_NUM": "2377.0",
+        "TAIL_NUM": "N363NW",
+        "DEST": "SLC",
+        "dep_minutes": 960.0,
+        "duration": 221.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/01/2025",
+        "FL_NUM": "2738.0",
+        "TAIL_NUM": "N6715C",
+        "DEST": "ATL",
+        "dep_minutes": 1077.0,
+        "duration": 123.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/02/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N704X",
+        "DEST": "ATL",
+        "dep_minutes": 760.0,
+        "duration": 119.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/02/2025",
+        "FL_NUM": "1178.0",
+        "TAIL_NUM": "N352DN",
+        "DEST": "ATL",
+        "dep_minutes": 600.0,
+        "duration": 130.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/02/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N832DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 125.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/02/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N103DY",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 125.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/02/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N386DA",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/02/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N302DU",
+        "DEST": "SEA",
+        "dep_minutes": 360.0,
+        "duration": 295.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/02/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N315DU",
+        "DEST": "SEA",
+        "dep_minutes": 850.0,
+        "duration": 290.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/02/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N305DU",
+        "DEST": "SLC",
+        "dep_minutes": 450.0,
+        "duration": 229.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/02/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N363NW",
+        "DEST": "SLC",
+        "dep_minutes": 835.0,
+        "duration": 221.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/02/2025",
+        "FL_NUM": "2377.0",
+        "TAIL_NUM": "N307DU",
+        "DEST": "SLC",
+        "dep_minutes": 1145.0,
+        "duration": 226.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/02/2025",
+        "FL_NUM": "2738.0",
+        "TAIL_NUM": "N722TW",
+        "DEST": "ATL",
+        "dep_minutes": 1045.0,
+        "duration": 121.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/02/2025",
+        "FL_NUM": "2879.0",
+        "TAIL_NUM": "N684DA",
+        "DEST": "ATL",
+        "dep_minutes": 1199.0,
+        "duration": 126.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/03/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N702TW",
+        "DEST": "ATL",
+        "dep_minutes": 760.0,
+        "duration": 119.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/03/2025",
+        "FL_NUM": "1178.0",
+        "TAIL_NUM": "N382DN",
+        "DEST": "ATL",
+        "dep_minutes": 600.0,
+        "duration": 130.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/03/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N907DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 125.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/03/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N660DL",
+        "DEST": "ATL",
+        "dep_minutes": 340.0,
+        "duration": 124.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/03/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N371DA",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/03/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N315DU",
+        "DEST": "SEA",
+        "dep_minutes": 360.0,
+        "duration": 295.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/03/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N302DU",
+        "DEST": "SEA",
+        "dep_minutes": 850.0,
+        "duration": 290.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/03/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N310DU",
+        "DEST": "SLC",
+        "dep_minutes": 450.0,
+        "duration": 229.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/03/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N364NW",
+        "DEST": "SLC",
+        "dep_minutes": 835.0,
+        "duration": 221.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/03/2025",
+        "FL_NUM": "2377.0",
+        "TAIL_NUM": "N325DU",
+        "DEST": "SLC",
+        "dep_minutes": 1145.0,
+        "duration": 226.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/03/2025",
+        "FL_NUM": "2738.0",
+        "TAIL_NUM": "N704X",
+        "DEST": "ATL",
+        "dep_minutes": 1045.0,
+        "duration": 121.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/03/2025",
+        "FL_NUM": "2879.0",
+        "TAIL_NUM": "N665DN",
+        "DEST": "ATL",
+        "dep_minutes": 1199.0,
+        "duration": 126.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/04/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N933DZ",
+        "DEST": "ATL",
+        "dep_minutes": 760.0,
+        "duration": 119.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/04/2025",
+        "FL_NUM": "1178.0",
+        "TAIL_NUM": "N369DN",
+        "DEST": "ATL",
+        "dep_minutes": 600.0,
+        "duration": 130.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/04/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N843DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 125.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/04/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N693DL",
+        "DEST": "ATL",
+        "dep_minutes": 340.0,
+        "duration": 124.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/04/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N941DZ",
+        "DEST": "ATL",
+        "dep_minutes": 920.0,
+        "duration": 119.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/04/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N305DU",
+        "DEST": "SEA",
+        "dep_minutes": 360.0,
+        "duration": 295.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/04/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N308DU",
+        "DEST": "SEA",
+        "dep_minutes": 850.0,
+        "duration": 290.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/04/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N302DU",
+        "DEST": "SLC",
+        "dep_minutes": 450.0,
+        "duration": 229.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/04/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N356NW",
+        "DEST": "SLC",
+        "dep_minutes": 835.0,
+        "duration": 221.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/04/2025",
+        "FL_NUM": "2377.0",
+        "TAIL_NUM": "N328NB",
+        "DEST": "SLC",
+        "dep_minutes": 1145.0,
+        "duration": 226.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/04/2025",
+        "FL_NUM": "2738.0",
+        "TAIL_NUM": "N702TW",
+        "DEST": "ATL",
+        "dep_minutes": 1045.0,
+        "duration": 121.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/04/2025",
+        "FL_NUM": "2879.0",
+        "TAIL_NUM": "N665DN",
+        "DEST": "ATL",
+        "dep_minutes": 1205.0,
+        "duration": 121.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/05/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N723TW",
+        "DEST": "ATL",
+        "dep_minutes": 760.0,
+        "duration": 119.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/05/2025",
+        "FL_NUM": "1178.0",
+        "TAIL_NUM": "N710TW",
+        "DEST": "ATL",
+        "dep_minutes": 600.0,
+        "duration": 130.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/05/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N877DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 125.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/05/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N6700",
+        "DEST": "ATL",
+        "dep_minutes": 340.0,
+        "duration": 124.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/05/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N3750D",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/05/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N313DU",
+        "DEST": "SEA",
+        "dep_minutes": 360.0,
+        "duration": 295.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/05/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N315DU",
+        "DEST": "SEA",
+        "dep_minutes": 850.0,
+        "duration": 290.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/05/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N314DU",
+        "DEST": "SLC",
+        "dep_minutes": 440.0,
+        "duration": 229.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/05/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N350NA",
+        "DEST": "SLC",
+        "dep_minutes": 835.0,
+        "duration": 221.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/05/2025",
+        "FL_NUM": "2377.0",
+        "TAIL_NUM": "N321DU",
+        "DEST": "SLC",
+        "dep_minutes": 1145.0,
+        "duration": 226.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/05/2025",
+        "FL_NUM": "2738.0",
+        "TAIL_NUM": "N721TW",
+        "DEST": "ATL",
+        "dep_minutes": 1045.0,
+        "duration": 121.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/05/2025",
+        "FL_NUM": "2879.0",
+        "TAIL_NUM": "N723TW",
+        "DEST": "ATL",
+        "dep_minutes": 1199.0,
+        "duration": 126.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/06/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N704X",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/06/2025",
+        "FL_NUM": "1178.0",
+        "TAIL_NUM": "N3768",
+        "DEST": "ATL",
+        "dep_minutes": 575.0,
+        "duration": 122.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/06/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N836DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 128.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/06/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N954DZ",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/06/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N303DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/06/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N305DU",
+        "DEST": "SEA",
+        "dep_minutes": 865.0,
+        "duration": 285.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/06/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N315DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/06/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N315DU",
+        "DEST": "SLC",
+        "dep_minutes": 1020.0,
+        "duration": 222.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/07/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N833DN",
+        "DEST": "ATL",
+        "dep_minutes": 1075.0,
+        "duration": 129.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/07/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N722TW",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/07/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N826DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 128.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/07/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N723TW",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/07/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N316DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/07/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N303DU",
+        "DEST": "SEA",
+        "dep_minutes": 865.0,
+        "duration": 285.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/07/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N305DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/07/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N309DU",
+        "DEST": "SLC",
+        "dep_minutes": 1020.0,
+        "duration": 222.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/08/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N840DN",
+        "DEST": "ATL",
+        "dep_minutes": 1075.0,
+        "duration": 129.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/08/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N705TW",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/08/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N817DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/08/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N699DL",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/08/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N659DL",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 117.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/08/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N315DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/08/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N308DU",
+        "DEST": "SEA",
+        "dep_minutes": 865.0,
+        "duration": 285.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/08/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N303DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/08/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N328DU",
+        "DEST": "SLC",
+        "dep_minutes": 1020.0,
+        "duration": 222.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/09/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N352DN",
+        "DEST": "ATL",
+        "dep_minutes": 1095.0,
+        "duration": 131.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/09/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N835DN",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 119.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/09/2025",
+        "FL_NUM": "1178.0",
+        "TAIL_NUM": "N774DE",
+        "DEST": "ATL",
+        "dep_minutes": 575.0,
+        "duration": 122.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/09/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N850DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 128.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/09/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N710TW",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/09/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N3767",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/09/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N308DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/09/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N316DU",
+        "DEST": "SEA",
+        "dep_minutes": 865.0,
+        "duration": 285.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/09/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N303DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/09/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N318DU",
+        "DEST": "SLC",
+        "dep_minutes": 1020.0,
+        "duration": 222.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/10/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N396DN",
+        "DEST": "ATL",
+        "dep_minutes": 1095.0,
+        "duration": 131.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/10/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N899DN",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 119.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/10/2025",
+        "FL_NUM": "1178.0",
+        "TAIL_NUM": "N3771K",
+        "DEST": "ATL",
+        "dep_minutes": 575.0,
+        "duration": 122.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/10/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N899DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/10/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N707TW",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/10/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N3771K",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/10/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N304DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/10/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N317DU",
+        "DEST": "SEA",
+        "dep_minutes": 865.0,
+        "duration": 285.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/10/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N316DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/10/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N303DU",
+        "DEST": "SLC",
+        "dep_minutes": 1020.0,
+        "duration": 222.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/11/2025",
+        "FL_NUM": "314.0",
+        "TAIL_NUM": "N710TW",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 117.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/11/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N801DZ",
+        "DEST": "ATL",
+        "dep_minutes": 1075.0,
+        "duration": 129.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/11/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N704X",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/11/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N899DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 126.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/11/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N717TW",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/11/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N319DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/11/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N317DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/11/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N316DU",
+        "DEST": "SLC",
+        "dep_minutes": 1020.0,
+        "duration": 222.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/12/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N397DN",
+        "DEST": "ATL",
+        "dep_minutes": 1090.0,
+        "duration": 131.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/12/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N712TW",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/12/2025",
+        "FL_NUM": "1178.0",
+        "TAIL_NUM": "N807DN",
+        "DEST": "ATL",
+        "dep_minutes": 585.0,
+        "duration": 122.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/12/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N850DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/12/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N713TW",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/12/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N890DN",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/12/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N317DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/12/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N312DU",
+        "DEST": "SEA",
+        "dep_minutes": 865.0,
+        "duration": 285.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/12/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N302DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/12/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N325DU",
+        "DEST": "SLC",
+        "dep_minutes": 1020.0,
+        "duration": 222.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/13/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N369DN",
+        "DEST": "ATL",
+        "dep_minutes": 1075.0,
+        "duration": 130.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/13/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N713TW",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/13/2025",
+        "FL_NUM": "1178.0",
+        "TAIL_NUM": "N383DN",
+        "DEST": "ATL",
+        "dep_minutes": 575.0,
+        "duration": 122.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/13/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N868DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/13/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N717TW",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/13/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N881DN",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/13/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N324DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/13/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N310DU",
+        "DEST": "SEA",
+        "dep_minutes": 865.0,
+        "duration": 285.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/13/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N312DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/13/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N312DU",
+        "DEST": "SLC",
+        "dep_minutes": 1020.0,
+        "duration": 222.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/14/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N893DN",
+        "DEST": "ATL",
+        "dep_minutes": 1075.0,
+        "duration": 129.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/14/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N722TW",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/14/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N879DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/14/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N712TW",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/14/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N846DN",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/14/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N301DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/14/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N314DU",
+        "DEST": "SEA",
+        "dep_minutes": 865.0,
+        "duration": 285.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/14/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N310DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/14/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N312DU",
+        "DEST": "SLC",
+        "dep_minutes": 1020.0,
+        "duration": 222.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/15/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N900DU",
+        "DEST": "ATL",
+        "dep_minutes": 1075.0,
+        "duration": 129.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/15/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N727TW",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/15/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N819DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/15/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N713TW",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/15/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N918DU",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/15/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N303DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/15/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N301DU",
+        "DEST": "SEA",
+        "dep_minutes": 865.0,
+        "duration": 285.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/15/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N314DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/15/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N320DU",
+        "DEST": "SLC",
+        "dep_minutes": 1020.0,
+        "duration": 222.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/16/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N396DN",
+        "DEST": "ATL",
+        "dep_minutes": 1115.0,
+        "duration": 129.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/16/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N704X",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/16/2025",
+        "FL_NUM": "1178.0",
+        "TAIL_NUM": "N774DE",
+        "DEST": "ATL",
+        "dep_minutes": 575.0,
+        "duration": 122.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/16/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N882DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/16/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N727TW",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/16/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N806DN",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/16/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N312DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/16/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N317DU",
+        "DEST": "SEA",
+        "dep_minutes": 865.0,
+        "duration": 285.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/16/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N301DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/16/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N314DU",
+        "DEST": "SLC",
+        "dep_minutes": 1020.0,
+        "duration": 222.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/17/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N957DZ",
+        "DEST": "ATL",
+        "dep_minutes": 1115.0,
+        "duration": 129.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/17/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N711ZX",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/17/2025",
+        "FL_NUM": "1178.0",
+        "TAIL_NUM": "N377DE",
+        "DEST": "ATL",
+        "dep_minutes": 575.0,
+        "duration": 122.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/17/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N844DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/17/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N709TW",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/17/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N851DN",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/17/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N317DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/17/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N328DU",
+        "DEST": "SEA",
+        "dep_minutes": 865.0,
+        "duration": 285.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/17/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N321DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/17/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N324DU",
+        "DEST": "SLC",
+        "dep_minutes": 1020.0,
+        "duration": 222.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/18/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N933DZ",
+        "DEST": "ATL",
+        "dep_minutes": 1030.0,
+        "duration": 127.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/18/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N711ZX",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/18/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N867DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/18/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N709TW",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/18/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N721TW",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 117.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/18/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N313DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/18/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N328DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/18/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N307DU",
+        "DEST": "SLC",
+        "dep_minutes": 1020.0,
+        "duration": 222.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/19/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N360DN",
+        "DEST": "ATL",
+        "dep_minutes": 1030.0,
+        "duration": 127.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/19/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N713TW",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/19/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N914DU",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/19/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N721TW",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/19/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N882DN",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/19/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N325DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/19/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N309DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/19/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N307DU",
+        "DEST": "SLC",
+        "dep_minutes": 1020.0,
+        "duration": 222.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/20/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N849DN",
+        "DEST": "ATL",
+        "dep_minutes": 1015.0,
+        "duration": 125.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/20/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N712TW",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/20/2025",
+        "FL_NUM": "1178.0",
+        "TAIL_NUM": "N374DA",
+        "DEST": "ATL",
+        "dep_minutes": 575.0,
+        "duration": 122.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/20/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N901DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/20/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N711ZX",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/20/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N873DN",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/20/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N303DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/20/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N312DU",
+        "DEST": "SEA",
+        "dep_minutes": 865.0,
+        "duration": 285.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/20/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N140DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/20/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N320DU",
+        "DEST": "SLC",
+        "dep_minutes": 815.0,
+        "duration": 220.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/20/2025",
+        "FL_NUM": "2377.0",
+        "TAIL_NUM": "N321DU",
+        "DEST": "SLC",
+        "dep_minutes": 1160.0,
+        "duration": 224.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/20/2025",
+        "FL_NUM": "2738.0",
+        "TAIL_NUM": "N705TW",
+        "DEST": "ATL",
+        "dep_minutes": 1115.0,
+        "duration": 129.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/21/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N811DZ",
+        "DEST": "ATL",
+        "dep_minutes": 1030.0,
+        "duration": 127.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/21/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N665DN",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/21/2025",
+        "FL_NUM": "1178.0",
+        "TAIL_NUM": "N877DN",
+        "DEST": "ATL",
+        "dep_minutes": 575.0,
+        "duration": 122.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/21/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N845DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 128.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/21/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N704X",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/21/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N863DN",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/21/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N323DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/21/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N313DU",
+        "DEST": "SEA",
+        "dep_minutes": 865.0,
+        "duration": 285.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/21/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N312DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/21/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N309DU",
+        "DEST": "SLC",
+        "dep_minutes": 825.0,
+        "duration": 221.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/21/2025",
+        "FL_NUM": "2377.0",
+        "TAIL_NUM": "N305DU",
+        "DEST": "SLC",
+        "dep_minutes": 1160.0,
+        "duration": 224.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/22/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N888DU",
+        "DEST": "ATL",
+        "dep_minutes": 1030.0,
+        "duration": 127.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/22/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N704X",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/22/2025",
+        "FL_NUM": "1178.0",
+        "TAIL_NUM": "N387DA",
+        "DEST": "ATL",
+        "dep_minutes": 575.0,
+        "duration": 122.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/22/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N904DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 128.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/22/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N550NW",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/22/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N811DZ",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/22/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N328DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/22/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N318DU",
+        "DEST": "SEA",
+        "dep_minutes": 865.0,
+        "duration": 285.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/22/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N313DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/22/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N305DU",
+        "DEST": "SLC",
+        "dep_minutes": 825.0,
+        "duration": 221.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/22/2025",
+        "FL_NUM": "2377.0",
+        "TAIL_NUM": "N323DU",
+        "DEST": "SLC",
+        "dep_minutes": 1160.0,
+        "duration": 224.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/22/2025",
+        "FL_NUM": "2738.0",
+        "TAIL_NUM": "N705TW",
+        "DEST": "ATL",
+        "dep_minutes": 1115.0,
+        "duration": 129.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/23/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N123DW",
+        "DEST": "ATL",
+        "dep_minutes": 1015.0,
+        "duration": 126.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/23/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N718TW",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/23/2025",
+        "FL_NUM": "1178.0",
+        "TAIL_NUM": "N377DE",
+        "DEST": "ATL",
+        "dep_minutes": 575.0,
+        "duration": 122.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/23/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N910DU",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/23/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N721TW",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/23/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N897DN",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/23/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N313DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/23/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N314DU",
+        "DEST": "SEA",
+        "dep_minutes": 865.0,
+        "duration": 285.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/23/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N318DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/23/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N317DU",
+        "DEST": "SLC",
+        "dep_minutes": 815.0,
+        "duration": 220.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/23/2025",
+        "FL_NUM": "2377.0",
+        "TAIL_NUM": "N305DU",
+        "DEST": "SLC",
+        "dep_minutes": 1160.0,
+        "duration": 224.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/23/2025",
+        "FL_NUM": "2738.0",
+        "TAIL_NUM": "N709TW",
+        "DEST": "ATL",
+        "dep_minutes": 1115.0,
+        "duration": 129.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/24/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N116DN",
+        "DEST": "ATL",
+        "dep_minutes": 1015.0,
+        "duration": 126.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/24/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N704X",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/24/2025",
+        "FL_NUM": "1178.0",
+        "TAIL_NUM": "N3738B",
+        "DEST": "ATL",
+        "dep_minutes": 575.0,
+        "duration": 122.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/24/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N901DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/24/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N702TW",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/24/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N913DU",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/24/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N322DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/24/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N3767",
+        "DEST": "SEA",
+        "dep_minutes": 865.0,
+        "duration": 285.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/24/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N314DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/24/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N306DU",
+        "DEST": "SLC",
+        "dep_minutes": 815.0,
+        "duration": 220.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/24/2025",
+        "FL_NUM": "2377.0",
+        "TAIL_NUM": "N317DU",
+        "DEST": "SLC",
+        "dep_minutes": 1160.0,
+        "duration": 224.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/24/2025",
+        "FL_NUM": "2738.0",
+        "TAIL_NUM": "N707TW",
+        "DEST": "ATL",
+        "dep_minutes": 1115.0,
+        "duration": 129.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/25/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N904DN",
+        "DEST": "ATL",
+        "dep_minutes": 1030.0,
+        "duration": 127.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/25/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N702TW",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/25/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N887DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/25/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N722TW",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/25/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N713TW",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 117.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/25/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N326DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/25/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N313DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/25/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N140DU",
+        "DEST": "SLC",
+        "dep_minutes": 1020.0,
+        "duration": 222.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/26/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N392DN",
+        "DEST": "ATL",
+        "dep_minutes": 1015.0,
+        "duration": 126.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/26/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N718TW",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/26/2025",
+        "FL_NUM": "1178.0",
+        "TAIL_NUM": "N805DN",
+        "DEST": "ATL",
+        "dep_minutes": 585.0,
+        "duration": 122.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/26/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N898DN",
+        "DEST": "ATL",
+        "dep_minutes": 425.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/26/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N722TW",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/26/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N874DN",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/26/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N306DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/26/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N137DU",
+        "DEST": "SEA",
+        "dep_minutes": 865.0,
+        "duration": 285.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/26/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N304DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/26/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N333NB",
+        "DEST": "SLC",
+        "dep_minutes": 825.0,
+        "duration": 220.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/26/2025",
+        "FL_NUM": "2377.0",
+        "TAIL_NUM": "N125DU",
+        "DEST": "SLC",
+        "dep_minutes": 1160.0,
+        "duration": 224.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/26/2025",
+        "FL_NUM": "2738.0",
+        "TAIL_NUM": "N710TW",
+        "DEST": "ATL",
+        "dep_minutes": 1115.0,
+        "duration": 129.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/27/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N914DU",
+        "DEST": "ATL",
+        "dep_minutes": 1015.0,
+        "duration": 125.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/27/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N723TW",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/27/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N902DN",
+        "DEST": "ATL",
+        "dep_minutes": 480.0,
+        "duration": 120.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/27/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N709TW",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/27/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N906DN",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/27/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N113DQ",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/27/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N310DU",
+        "DEST": "SEA",
+        "dep_minutes": 865.0,
+        "duration": 285.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/27/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N308DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/27/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N307DU",
+        "DEST": "SLC",
+        "dep_minutes": 825.0,
+        "duration": 221.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/27/2025",
+        "FL_NUM": "2377.0",
+        "TAIL_NUM": "N357NB",
+        "DEST": "SLC",
+        "dep_minutes": 1160.0,
+        "duration": 224.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/27/2025",
+        "FL_NUM": "2738.0",
+        "TAIL_NUM": "N357DN",
+        "DEST": "ATL",
+        "dep_minutes": 1115.0,
+        "duration": 129.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/28/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N873DN",
+        "DEST": "ATL",
+        "dep_minutes": 1030.0,
+        "duration": 127.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/28/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N702TW",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/28/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N831DN",
+        "DEST": "ATL",
+        "dep_minutes": 480.0,
+        "duration": 123.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/28/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N718TW",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/28/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N831DN",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/28/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N320DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/28/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N137DU",
+        "DEST": "SEA",
+        "dep_minutes": 865.0,
+        "duration": 285.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/28/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N310DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/28/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N302DU",
+        "DEST": "SLC",
+        "dep_minutes": 1020.0,
+        "duration": 222.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/28/2025",
+        "FL_NUM": "2738.0",
+        "TAIL_NUM": "N668DN",
+        "DEST": "ATL",
+        "dep_minutes": 1115.0,
+        "duration": 129.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/29/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N873DN",
+        "DEST": "ATL",
+        "dep_minutes": 1030.0,
+        "duration": 127.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/29/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N712TW",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/29/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N832DN",
+        "DEST": "ATL",
+        "dep_minutes": 480.0,
+        "duration": 123.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/29/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N713TW",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/29/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N832DN",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/29/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N310DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/29/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N306DU",
+        "DEST": "SEA",
+        "dep_minutes": 865.0,
+        "duration": 285.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/29/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N136DQ",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/29/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N322DU",
+        "DEST": "SLC",
+        "dep_minutes": 1020.0,
+        "duration": 222.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/29/2025",
+        "FL_NUM": "2738.0",
+        "TAIL_NUM": "N723TW",
+        "DEST": "ATL",
+        "dep_minutes": 1115.0,
+        "duration": 129.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/30/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N383DZ",
+        "DEST": "ATL",
+        "dep_minutes": 1015.0,
+        "duration": 126.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/30/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N722TW",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/30/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N870DN",
+        "DEST": "ATL",
+        "dep_minutes": 480.0,
+        "duration": 123.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/30/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N712TW",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/30/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N870DN",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/30/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N324DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/30/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N542DE",
+        "DEST": "SEA",
+        "dep_minutes": 865.0,
+        "duration": 285.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/30/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N306DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/30/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N312DU",
+        "DEST": "SLC",
+        "dep_minutes": 825.0,
+        "duration": 221.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/30/2025",
+        "FL_NUM": "2377.0",
+        "TAIL_NUM": "N322DU",
+        "DEST": "SLC",
+        "dep_minutes": 1160.0,
+        "duration": 224.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/30/2025",
+        "FL_NUM": "2738.0",
+        "TAIL_NUM": "N116DN",
+        "DEST": "ATL",
+        "dep_minutes": 1115.0,
+        "duration": 129.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/31/2025",
+        "FL_NUM": "976.0",
+        "TAIL_NUM": "N333DX",
+        "DEST": "ATL",
+        "dep_minutes": 1015.0,
+        "duration": 126.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/31/2025",
+        "FL_NUM": "1147.0",
+        "TAIL_NUM": "N718TW",
+        "DEST": "ATL",
+        "dep_minutes": 665.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/31/2025",
+        "FL_NUM": "1247.0",
+        "TAIL_NUM": "N819DN",
+        "DEST": "ATL",
+        "dep_minutes": 480.0,
+        "duration": 123.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/31/2025",
+        "FL_NUM": "1264.0",
+        "TAIL_NUM": "N711ZX",
+        "DEST": "ATL",
+        "dep_minutes": 345.0,
+        "duration": 128.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/31/2025",
+        "FL_NUM": "1477.0",
+        "TAIL_NUM": "N819DN",
+        "DEST": "ATL",
+        "dep_minutes": 895.0,
+        "duration": 118.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/31/2025",
+        "FL_NUM": "2041.0",
+        "TAIL_NUM": "N307DU",
+        "DEST": "SEA",
+        "dep_minutes": 435.0,
+        "duration": 296.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/31/2025",
+        "FL_NUM": "2055.0",
+        "TAIL_NUM": "N310DU",
+        "DEST": "SEA",
+        "dep_minutes": 865.0,
+        "duration": 285.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/31/2025",
+        "FL_NUM": "2231.0",
+        "TAIL_NUM": "N312DU",
+        "DEST": "SLC",
+        "dep_minutes": 435.0,
+        "duration": 234.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/31/2025",
+        "FL_NUM": "2247.0",
+        "TAIL_NUM": "N324DU",
+        "DEST": "SLC",
+        "dep_minutes": 825.0,
+        "duration": 221.0,
+        "status": "Delayed"
+    },
+    {
+        "date": "01/31/2025",
+        "FL_NUM": "2377.0",
+        "TAIL_NUM": "N308DU",
+        "DEST": "SLC",
+        "dep_minutes": 1160.0,
+        "duration": 224.0,
+        "status": "On-Time"
+    },
+    {
+        "date": "01/31/2025",
+        "FL_NUM": "2738.0",
+        "TAIL_NUM": "N668DN",
+        "DEST": "ATL",
+        "dep_minutes": 1115.0,
+        "duration": 129.0,
+        "status": "On-Time"
+    }
+]
